@@ -5,6 +5,8 @@ import com.ohneemc.tasks.Afk;
 import com.ohneemc.tasks.Checker;
 import com.ohneemc.tasks.JoinQuit;
 import com.ohneemc.util.Config;
+import com.ohneemc.util.Placeholder;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class OhneeMC extends JavaPlugin {
@@ -19,6 +21,10 @@ public class OhneeMC extends JavaPlugin {
 
     public void onEnable(){
         instance = this;
+
+        if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
+            new Placeholder(this).register();
+        }
 
         //Save config to disk.
         saveResource("config.yml", false);
