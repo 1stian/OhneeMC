@@ -1,0 +1,37 @@
+#      |||        ||      ||||  ||  ||||||    ||||||
+#   |||   |||     ||      || || ||  ||    ||  ||    ||
+# |||        |||  |||||   ||  ||||  || |||||  || |||||
+#   |||   |||     ||  ||  ||   |||   ||        ||
+#      |||        ||  ||  ||    ||    ||||||    ||||||
+#
+#
+# Created by Stian "1stian" Tofte
+# https://ohneemc.com
+#
+#
+
+debug: false
+general:
+  #Join message
+  join: §a[+]§7 {player}
+  #Quit message
+  quit: §c[-]§7 {player}
+
+afk:
+  #How long it takes to be afk in minutes.
+  time: 5
+  #Cancel afk on chat.
+  chat: true
+
+teleport:
+  #How long the Tpa and Tpahere request should last(In seconds).
+  timeout: 30
+
+homes:
+  #How many homes a group may have. This must match your groups name.
+  default: 1
+  regular: 2
+  trusted: 3
+
+#Please do not change or delete this!
+ConfigVersion: 1.0

@@ -1,0 +1,149 @@
+name: OhneeMC
+version: ${project.version}
+author: Stian "1stian" Tofte
+website: https://ohneemc.com
+main: com.ohneemc.OhneeMC
+depend: [PlaceholderAPI, Vault]
+api-version: "1.14"
+prefix: OhneeMC
+commands:
+  tp:
+    description: Teleports you or another player to someone.
+    usage: /tp | /tp <name> <name>
+    permission: ohnee.tp
+    permission-message: You do not have access to this command /tp.
+  tphere:
+    description: Teleports a player to you.
+    usage: /tphere <name>
+    permission: ohnee.tphere
+    permission-message: You do not have access to this command /tphere.
+  tpa:
+    description: Sends a teleport request.
+    usage: /tpa <name>
+    permission: ohnee.tpa
+    permission-message: You do not have access to this command /tpa.
+  tpahere:
+    description: Sends a teleport request.
+    usage: /tpahere <name>
+    permission: ohnee.tpahere
+    permission-message: You do not have access to this command /tpahere.
+  tpaccept:
+    description: Accepts the tp request.
+    usage: /tpaccept
+    aliases: [tpyes, tpy]
+    permission: ohnee.tpaccept
+    permission-message: You do not have access to this command /tpaccept.
+  tpdeny:
+    description: Denies the tp request.
+    usage: /tpdeny
+    aliases: [tpno, tpn]
+    permission: ohnee.tpdeny
+    permission-message: You do not have access to this command /tpdeny.
+  tpcancel:
+    description: Cancels your teleport request.
+    usage: /tpcancel
+    aliases: [tpac]
+    permission: ohnee.tpcancel
+    permission-message: You do not have access to this command /tpcancel.
+  sethome:
+    description: Sets a home at your location.
+    usage: /sethome <name>
+    permission: ohnee.sethome
+    permission-message: You do not have access to this command /sethome.
+  delhome:
+    description: Deletes a home you specifiy.
+    usage: /delhome <name>
+    permission: ohnee.delhome
+    permission-message: You do not have access to this command /delhome.
+  home:
+    description: Teleports you to one of your homes.
+    usage: /home <name>
+    aliases: [homes]
+    permission: ohnee.home
+    permission-message: You do not have access to this command /home.
+  setwarp:
+    description: Set a warp to your location.
+    usage: /setwarp <name>
+    permission: ohnee.setwarp
+    permission-message: You do not have access to this command /setwarp.
+  delwarp:
+    description: Deletes specified warp.
+    usage: /delwarp <name>
+    permission: ohnee.delwarp
+    permission-message: You do not have access to this command /delwarp.
+  warp:
+    description: Teleports you to specified warp.
+    usage: /warp <name>
+    permission: ohnee.warp
+    permission-message: You do not have access to this command /warp.
+  gamemode:
+    description: Change yours or someone elses gamemode.
+    usage: /gamemode <gamemode> <name>
+    aliases: [gm]
+    permission: ohnee.gamemode
+    permission-message: You do not have access to this command /gamemode.
+  weather:
+    description: Change weather.
+    usage: /weather clear|storm|thunder <duration>
+    permission: ohnee.weather
+    permission-message: You do not have access to this command /weather.
+  time:
+    description: Change time.
+    usage: /time morning|day|night|midnight
+    permission: ohnee.time
+    permission-message: You do not have access to this command /time.
+  fly:
+    description: Toggle fly.
+    usage: /fly | /fly <name>
+    permission: ohnee.fly
+    permission-message: You do not have access to this command /fly.
+  wild:
+    description: Opens a menu for random teleport.
+    usage: /wild
+    permission: ohnee.wild
+    permission-message: You do not have access to this command /wild.
+  ohnee:
+    description: Admin command.
+    usage: /ohnee reload | version
+    permission: ohnee.ohnee
+    permission-message: You do not have access to this command /ohnee.
+permissions:
+  ohnee.*:
+    default: false
+    description: Access to every command in OhneeEssentials.
+    children:
+      ohnee.tp: true
+      ohnee.tphere: true
+      ohnee.tpa: true
+      ohnee.tpaccept: true
+      ohnee.tpdeny: true
+      ohnee.wild: true
+      ohnee.reload: true
+      ohnee.gamemode: true
+      ohnee.warp: true
+      ohnee.delwarp: true
+      ohnee.setwarp: true
+      ohnee.ohnee: true
+      ohnee.fly: true
+  ohnee.admin:
+    default: false
+    description: Acces to all commands, but can't reload the plugin.
+    children:
+      ohnee.tp: true
+      ohnee.tphere: true
+      ohnee.tpa: true
+      ohnee.tpaccept: true
+      ohnee.tpdeny: true
+      ohnee.wild: true
+      ohnee.warp: true
+      ohnee.delwarp: true
+      ohnee.setwarp: true
+      ohnee.fly: true
+  ohnee.tpa:
+    default: false
+    description: Acces to basic usage of the plugin.
+    children:
+      ohnee.tpa: true
+      ohnee.tpcancel: true
+      ohnee.tpaccept: true
+      ohnee.tpdeny: true
