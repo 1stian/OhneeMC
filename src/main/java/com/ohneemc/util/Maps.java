@@ -1,6 +1,7 @@
 package com.ohneemc.util;
 
 import org.bukkit.Location;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -22,6 +23,18 @@ public class Maps {
         return last;
     }
     //</editor-fold>
+
+    private static HashMap<String, Integer> maxHomes = new HashMap<>();
+    public static HashMap<String, Integer> getMaxHomes() { return maxHomes; }
+
+    public static void loadGroups(){
+        ConfigurationSection homes = Config.getSection("homes");
+        if (homes != null) {
+            for (String i : homes.getKeys(false)){
+                maxHomes.put(i, Config.getInteger("homes." + i));
+            }
+        }
+    }
 
     //<editor-fold desc="Teleport">
     //Teleport request maps

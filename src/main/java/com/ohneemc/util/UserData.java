@@ -29,7 +29,18 @@ public class UserData {
     public static boolean setHome(Player player, String[] name) {
         if (name.length == 1) {
             users = loadPlayerFile(player);
+
             if (users != null) {
+                //Getting player group and their max allowed homes.
+                String playerGroup = Vault.getGroup(player);
+                int maxPlayerHomes = Maps.getMaxHomes().get(playerGroup);
+
+                if (getHomeCount(player) == maxPlayerHomes){
+                    player.sendMessage(ChatColor.GREEN + "You've reached your max allowed homes. Count: " + maxPlayerHomes);
+                    player.sendMessage(ChatColor.GREEN + "Please delete one of your homes before setting a new one.");
+                    return true;
+                }
+
                 Location location = getPlayerLocation(player);
 
                 World world = location.getWorld();
@@ -379,7 +390,20 @@ public class UserData {
         return player.getInventory();
     }
 
+    public static boolean getImported(Player player) {
+        users = loadPlayerFile(player);
+        if (users != null) {
+            return users.getBoolean("imported");
+        }
+        return false;
+    }
 
+    public static void setImported(Player player, Boolean set) {
+        users = loadPlayerFile(player);
+        if (users != null) {
+            users.set("imported", set);
+        }
+    }
     //</editor-fold>
 
     public static String getPlaytime(Player player){

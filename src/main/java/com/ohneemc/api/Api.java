@@ -1,6 +1,7 @@
 package com.ohneemc.api;
 
 import com.ohneemc.OhneeMC;
+import com.ohneemc.util.Config;
 import com.ohneemc.util.UserData;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -42,6 +43,23 @@ public class Api {
      */
     public String getVersion(){
         return OhneeMC.instance.getDescription().getVersion();
+    }
+
+    /**
+     *
+     * @param player Check for who.
+     * @return True if imported otherwise false.
+     */
+    public boolean isImported(Player player){
+        return UserData.getImported(player);
+    }
+
+    /**
+     *
+     * @param player Set imported for player.
+     */
+    public void setImported(Player player){
+        UserData.setImported(player, true);
     }
 
     /**

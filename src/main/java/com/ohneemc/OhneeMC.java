@@ -3,8 +3,13 @@ package com.ohneemc;
 import com.ohneemc.api.Api;
 import com.ohneemc.tasks.*;
 import com.ohneemc.util.Config;
+import com.ohneemc.util.Maps;
 import com.ohneemc.util.Placeholder;
+import net.milkbowl.vault.chat.Chat;
+import net.milkbowl.vault.economy.Economy;
+import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class OhneeMC extends JavaPlugin {
@@ -12,6 +17,11 @@ public class OhneeMC extends JavaPlugin {
     public static OhneeMC instance;
     public static Api Api = new Api();
     public static boolean debug = Config.getBoolean("debug");
+
+    //Vault
+    public static Economy econ = null;
+    public static Permission perms = null;
+    public static Chat chat = null;
 
     public void onDisable(){
 
@@ -36,6 +46,36 @@ public class OhneeMC extends JavaPlugin {
         registerListeners();
         //Start the checkers.
         startChecker();
+        //Initiate vault
+        setupEconomy();
+        setupChat();
+        setupPermissions();
+        //Load groups
+        Maps.loadGroups();
+    }
+
+    private boolean setupEconomy() {
+        if (getServer().getPluginManager().getPlugin("Vault") == null) {
+            return false;
+        }
+        RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
+        if (rsp == null) {
+            return false;
+        }
+        econ = rsp.getProvider();
+        return econ != null;
+    }
+
+    private boolean setupChat() {
+        RegisteredServiceProvider<Chat> rsp = getServer().getServicesManager().getRegistration(Chat.class);
+        chat = rsp.getProvider();
+        return chat != null;
+    }
+
+    private boolean setupPermissions() {
+        RegisteredServiceProvider<Permission> rsp = getServer().getServicesManager().getRegistration(Permission.class);
+        perms = rsp.getProvider();
+        return perms != null;
     }
 
     @SuppressWarnings("ConstantConditions")

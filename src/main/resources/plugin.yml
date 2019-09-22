@@ -148,7 +148,6 @@ permissions:
       ohnee.tpa: true
       ohnee.tpaccept: true
       ohnee.tpdeny: true
-      ohnee.wild: true
       ohnee.reload: true
       ohnee.gamemode: true
       ohnee.warp: true
@@ -170,6 +169,7 @@ permissions:
       ohnee.delwarp: true
       ohnee.setwarp: true
       ohnee.fly: true
+      ohnee.gamemode: true
   ohnee.tpa:
     default: false
     description: Acces to basic usage of the plugin.
@@ -178,3 +178,12 @@ permissions:
       ohnee.tpcancel: true
       ohnee.tpaccept: true
       ohnee.tpdeny: true
+  ohnee.use:
+    default: false
+    description: Basic usage
+    children:
+      ohnee.back: true
+      ohnee.afk: true
+      ohnee.spawn: true
+      ohnee.sethome: true
+      ohnee.home: true

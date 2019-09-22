@@ -1,6 +1,7 @@
 package com.ohneemc.util;
 
 import com.ohneemc.OhneeMC;
+import org.bukkit.configuration.ConfigurationSection;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,6 +59,11 @@ public class Config {
     public static List<String> getList(String location){
         try {return OhneeMC.instance.getConfig().getStringList(location);}
         catch (Exception e) {error(e); return new ArrayList<>();}
+    }
+
+    public static ConfigurationSection getSection(String section){
+        try {return OhneeMC.instance.getConfig().getConfigurationSection(section);}
+        catch (Exception e) {error(e); return null;}
     }
 
     public static boolean reloadConfig(){
