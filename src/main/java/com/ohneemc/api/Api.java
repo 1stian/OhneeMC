@@ -50,25 +50,15 @@ public class Api {
      * @param name Home name
      * @param location Location for home
      */
-    public void setHome(Player player, String name, Location location) {
+    public void setHome(Player player, String name, double x, double y, double z, float yaw, float pitch, String worldName) {
         UserData.loadPlayerFile(player);
-        double x = location.getX();
-        double y = location.getY();
-        double z = location.getZ();
-        float yaw = location.getYaw();
-        float pitch = location.getPitch();
-
-        String world = player.getWorld().getName();
-
         UserData.users.set("homes." + name + ".x", x);
         UserData.users.set("homes." + name + ".y", y);
         UserData.users.set("homes." + name + ".z", z);
         UserData.users.set("homes." + name + ".yaw", yaw);
         UserData.users.set("homes." + name + ".pitch", pitch);
-        UserData.users.set("homes." + name + ".world", world);
-
+        UserData.users.set("homes." + name + ".world", worldName);
         Bukkit.getLogger().info("Saved home from JsonToYaml parse " + name);
-
         UserData.savePlayerFile(player);
     }
 }
