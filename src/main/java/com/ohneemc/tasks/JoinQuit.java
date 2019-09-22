@@ -7,14 +7,17 @@ import com.ohneemc.util.UserData;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.ItemStack;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import static com.ohneemc.util.UserData.users;
 
@@ -59,11 +62,39 @@ public class JoinQuit implements Listener {
         users.set("fly", false);
         users.set("banned", false);
         users.set("muted", false);
+        users.set("vanished", false);
         users.set("gamemode", GameMode.SURVIVAL.toString());
         users.set("Timestamps.firstJoined", System.currentTimeMillis());
         users.set("Timestamps.lastSeasonStarted", System.currentTimeMillis());
 
+        giveStarterKit(player);
+
+        player.sendMessage(ChatColor.GOLD + "------------" + ChatColor.BOLD + "Server guides" + ChatColor.GOLD + "-----------");
+        player.sendMessage(ChatColor.GOLD + "----- " + ChatColor.GREEN + "https://ohneemc.com/get-started/" + ChatColor.GOLD + " -----");
+        player.sendMessage(ChatColor.GOLD + "-------------------------------------");
+
         UserData.savePlayerFile(player);
+    }
+
+    private void giveStarterKit(Player player){
+        boolean give = Config.getBoolean("kits.givestarter");
+        List<String> items = Config.getList("kits.starter");
+        if (give){
+            for (String i : items){
+                String[] split = i.split(":");
+                String iName = split[0];
+                int iAmount = Integer.valueOf(split[1]);
+                Material item = Material.matchMaterial(iName);
+                ItemStack stack;
+                if (item != null){
+                    stack = new ItemStack(item, iAmount);
+                    player.getInventory().addItem(stack);
+                }else{
+                    Bukkit.getLogger().warning("[Ohnee] There was a problem with the starter kit... Unrecognized item..");
+                }
+            }
+            Bukkit.getLogger().info(player.getName() + " received the starter kit.");
+        }
     }
 
     private void normalJoin(Player player){
@@ -83,6 +114,16 @@ public class JoinQuit implements Listener {
         }else{
             UserData.setFly(player, false);
         }
+
+        boolean vanished = users.getBoolean("vanished");
+        if (vanished){
+            UserData.setVanish(player, vanished);
+        }else{
+            UserData.setVanish(player, vanished);
+        }
+
+        float flySpeed = UserData.getFlySpeed(player);
+        player.setFlySpeed(flySpeed);
 
         //Updating values
         users.set("Timestamps.lastSeasonStarted", System.currentTimeMillis());

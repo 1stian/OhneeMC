@@ -120,6 +120,10 @@ public class Placeholder extends PlaceholderExpansion {
         if(identifier.equals("warps")){
             return String.valueOf(WarpData.getWarps(player));
         }
+
+        if (identifier.equals("vanished")){
+            return String.valueOf(UserData.isVanished(player));
+        }
         return null;
     }
 }

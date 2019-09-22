@@ -22,6 +22,7 @@ public class Afk implements Listener {
             UserData.setAfk(event.getPlayer(), false);
             OhneeMC.instance.getServer().broadcastMessage(ChatColor.GOLD + event.getPlayer().getName() +
                     ChatColor.GREEN + " is no longer afk");
+            event.getPlayer().setPlayerListName(event.getPlayer().getName());
         }
     }
 
@@ -33,6 +34,7 @@ public class Afk implements Listener {
                 UserData.setAfk(event.getPlayer(), false);
                 OhneeMC.instance.getServer().broadcastMessage(ChatColor.GOLD + event.getPlayer().getName() +
                         ChatColor.GREEN + " is no longer afk");
+                event.getPlayer().setPlayerListName(event.getPlayer().getName());
             }
         }
     }

@@ -6,14 +6,17 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class UserData {
 
     public static FileConfiguration users;
-    public static File userFile;
+    private static File userFile;
 
     //<editor-fold desc="Home Section">
 
@@ -279,7 +282,118 @@ public class UserData {
         users.set("fly", fly);
         savePlayerFile(player);
     }
+
+    /**
+     *
+     * @param player who to set it for.
+     * @param speed float speed. -1 to +1
+     */
+    public static void setFlySpeed(Player player, float speed){
+        users = loadPlayerFile(player);
+        if (users == null){
+            return;
+        }
+        player.setFlySpeed(speed);
+        users.set("flyspeed", speed);
+        savePlayerFile(player);
+    }
+
+    /**
+     *
+     * @param player who
+     * @return float flyspeed
+     */
+    public static Float getFlySpeed(Player player){
+        users = loadPlayerFile(player);
+        if (users == null){
+            return 0.1f;
+        }
+        return (float) users.getDouble("flyspeed");
+    }
     //</editor-fold>
+
+    //<editor-fold desc="Admin section">
+    /**
+     *
+     * @param player Player to vanish
+     * @param enb Set vanish and not toggle
+     * @return true on successful change, false if not.
+     */
+    public static boolean setVanish(Player player, Boolean enb){
+        users = loadPlayerFile(player);
+        if (users != null){
+
+            //Set on login if enabled when left.
+            if (enb != null){
+                if (enb){
+                    for (Player onlinePlayers : Bukkit.getOnlinePlayers()){
+                        player.hidePlayer(OhneeMC.instance, onlinePlayers);
+                    }
+                    player.sendMessage(ChatColor.GREEN + "You're now vanished.");
+                    return true;
+                }else{
+                    for (Player onlinePlayers : Bukkit.getOnlinePlayers()){
+                        player.showPlayer(OhneeMC.instance, onlinePlayers);
+                    }
+                    return true;
+                }
+            }
+
+            //Sets vanished on command.
+            boolean vanished = users.getBoolean("vanished");
+            if (!vanished){
+                for (Player onlinePlayers : Bukkit.getOnlinePlayers()){
+                    player.hidePlayer(OhneeMC.instance, onlinePlayers);
+                }
+                player.sendMessage(ChatColor.GREEN + "You're now vanished.");
+                users.set("vanished", true);
+                savePlayerFile(player);
+                return true;
+            }else{
+                for (Player onlinePlayers : Bukkit.getOnlinePlayers()){
+                    player.showPlayer(OhneeMC.instance, onlinePlayers);
+                }
+                player.sendMessage(ChatColor.GREEN + "You're no longer vanished.");
+                users.set("vanished", false);
+                savePlayerFile(player);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     *
+     * @param player Player to check
+     * @return true if vanished, false if not.
+     */
+    public static boolean isVanished(Player player){
+        users = loadPlayerFile(player);
+        if (users != null){
+            return users.getBoolean("vanished");
+        }
+        return false;
+    }
+
+    public static Inventory getPlayerInventory(Player player){
+        return player.getInventory();
+    }
+
+
+    //</editor-fold>
+
+    public static String getPlaytime(Player player){
+        users = loadPlayerFile(player);
+        if (users != null){
+            long firstJoined = users.getLong("Timestamps.firstJoined");
+            long currentTime = System.currentTimeMillis();
+
+            SimpleDateFormat format = new SimpleDateFormat("dd mm ss");
+            //Date d1 = format.parse(String.valueOf(firstJoined));
+        }
+
+        return "";
+    }
 
     //<editor-fold desc="File section">
     public static Location getPlayerLocation(Player player) {

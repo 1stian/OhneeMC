@@ -1,5 +1,6 @@
 package com.ohneemc.helpers;
 
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 public class Teleport {
@@ -10,5 +11,9 @@ public class Teleport {
             return true;
         }
         return false;
+    }
+
+    public static boolean tpPlayerToLocation(Player player, Location location){
+        return player.teleport(location);
     }
 }

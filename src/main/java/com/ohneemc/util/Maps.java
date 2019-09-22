@@ -1,5 +1,6 @@
 package com.ohneemc.util;
 
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -7,6 +8,20 @@ import java.util.UUID;
 
 public class Maps {
 
+    //<editor-fold desc="Last location">
+    private static HashMap<UUID, Location> lastPlayerLocation = new HashMap<>();
+    private static HashMap<UUID, Location> getLastPlayerLocation() { return lastPlayerLocation; }
+
+    public static void updateLastPlayerLocation(Player player) {
+        lastPlayerLocation.put(player.getUniqueId(), player.getLocation());
+    }
+
+    public static Location getLastPlayerLocation(Player player) {
+        Location last = getLastPlayerLocation().get(player.getUniqueId());
+        lastPlayerLocation.remove(player.getUniqueId());
+        return last;
+    }
+    //</editor-fold>
 
     //<editor-fold desc="Teleport">
     //Teleport request maps
@@ -35,7 +50,7 @@ public class Maps {
         tpRequestTime.remove(player.getUniqueId());
         tpaType.remove(player.getUniqueId());
     }
-    //</editor-fold>
+    //</editor-fold>s
 
     //<editor-fold desc="Afk maps">
     public static HashMap<UUID, Long> lastAction = new HashMap<>();

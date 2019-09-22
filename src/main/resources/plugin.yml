@@ -66,6 +66,16 @@ commands:
     usage: /setwarp <name>
     permission: ohnee.setwarp
     permission-message: You do not have access to this command /setwarp.
+  setspawn:
+    description: Sets world spawn to your locatioin.
+    usage: /setspawn
+    permission: ohnee.setspawn
+    permission-message: You do not have access to this command /setspawn.
+  spawn:
+    description: Teleports you to world spawn.
+    usage: /spawn
+    permission: ohnee.spawn
+    permission-message: You do not have acccess to this command /spawn.
   delwarp:
     description: Deletes specified warp.
     usage: /delwarp <name>
@@ -97,11 +107,31 @@ commands:
     usage: /fly | /fly <name>
     permission: ohnee.fly
     permission-message: You do not have access to this command /fly.
-  wild:
-    description: Opens a menu for random teleport.
-    usage: /wild
-    permission: ohnee.wild
-    permission-message: You do not have access to this command /wild.
+  flyspeed:
+    description: Set fly speed.
+    usage: /flyspeed | /flyspeed <number> 1-3
+    permission: ohnee.flyspeed
+    permission-message: You do not have access to this command /flyspeed.
+  vanish:
+    description: Toggles hiding from other players.
+    usage: /vanish
+    permission: ohnee.vanish
+    permission-message: You do not have access to this command /vanish.
+  back:
+    description: Teleports you to your last location before a teleport.
+    usage: /back
+    permission: ohnee.back
+    permission-message: You do not have access to this command /back.
+  invsee:
+    description: Opens a player inventory.
+    usage: /invsee <name>
+    permission: ohnee.invsee
+    permission-message: You do not have access to this command /invsee.
+  afk:
+    description: Toggles your afk status.
+    usage: /afk
+    permission: ohnee.afk
+    permission-message: You do not have access to this command /afk.
   ohnee:
     description: Admin command.
     usage: /ohnee reload | version

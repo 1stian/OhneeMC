@@ -53,6 +53,7 @@ public class Checker {
                     if (oldTime < currentTime){
                         if (!Maps.isAfk.get(id)){
                             UserData.setAfk(player, true);
+                            player.setPlayerListName(player.getName() + ChatColor.GRAY + " | " + ChatColor.ITALIC + "away");
                             OhneeMC.instance.getServer().broadcastMessage(ChatColor.GOLD + player.getName() +
                                     ChatColor.GREEN + " is now afk.");
                         }

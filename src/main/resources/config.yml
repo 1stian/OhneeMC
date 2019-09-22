@@ -33,5 +33,19 @@ homes:
   regular: 2
   trusted: 3
 
+kits:
+  # Whether to give the starter kit or not.
+  givestarter: true
+  starter: #The kit players will get when they join for the first time.
+    - "stone_sword:1"
+    - "stone_axe:1"
+    - "stone_pickaxe:1"
+    - "cooked_porkchop:32"
+    - "shield:1"
+    - "leather_chestplate:1"
+    - "leather_leggings:1"
+    - "leather_boots:1"
+    - "torch:14"
+
 #Please do not change or delete this!
 ConfigVersion: 1.0

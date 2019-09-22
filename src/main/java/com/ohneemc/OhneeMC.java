@@ -1,9 +1,7 @@
 package com.ohneemc;
 
 import com.ohneemc.api.Api;
-import com.ohneemc.tasks.Afk;
-import com.ohneemc.tasks.Checker;
-import com.ohneemc.tasks.JoinQuit;
+import com.ohneemc.tasks.*;
 import com.ohneemc.util.Config;
 import com.ohneemc.util.Placeholder;
 import org.bukkit.Bukkit;
@@ -29,6 +27,9 @@ public class OhneeMC extends JavaPlugin {
         //Save config to disk.
         saveResource("config.yml", false);
         saveResource("warps.yml", false);
+        saveResource("worlds.yml", false);
+        //Load config
+        reloadConfig();
         //Register commands.
         registerCommands();
         //Register listeners.
@@ -40,7 +41,6 @@ public class OhneeMC extends JavaPlugin {
     @SuppressWarnings("ConstantConditions")
     private void registerCommands(){
         getCommand("ohnee").setExecutor(new Commands());
-        getCommand("wild").setExecutor(new Commands());
         getCommand("tp").setExecutor(new Commands());
         getCommand("tphere").setExecutor(new Commands());
         getCommand("tpa").setExecutor(new Commands());
@@ -54,15 +54,24 @@ public class OhneeMC extends JavaPlugin {
         getCommand("setwarp").setExecutor(new Commands());
         getCommand("delwarp").setExecutor(new Commands());
         getCommand("warp").setExecutor(new Commands());
+        getCommand("setspawn").setExecutor(new Commands());
+        getCommand("spawn").setExecutor(new Commands());
         getCommand("gamemode").setExecutor(new Commands());
         getCommand("time").setExecutor(new Commands());
         getCommand("weather").setExecutor(new Commands());
         getCommand("fly").setExecutor(new Commands());
+        getCommand("flyspeed").setExecutor(new Commands());
+        getCommand("vanish").setExecutor(new Commands());
+        getCommand("back").setExecutor(new Commands());
+        getCommand("invsee").setExecutor(new Commands());
+        getCommand("afk").setExecutor(new Commands());
     }
 
     private void registerListeners(){
         getServer().getPluginManager().registerEvents(new JoinQuit(), this);
         getServer().getPluginManager().registerEvents(new Afk(), this);
+        getServer().getPluginManager().registerEvents(new Death(), this);
+        getServer().getPluginManager().registerEvents(new Inventory(), this);
     }
 
     private void startChecker(){
