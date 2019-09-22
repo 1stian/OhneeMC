@@ -403,6 +403,7 @@ public class UserData {
         if (users != null) {
             users.set("imported", set);
         }
+        savePlayerFile(player);
     }
     //</editor-fold>
 

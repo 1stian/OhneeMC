@@ -63,6 +63,7 @@ public class JoinQuit implements Listener {
         users.set("banned", false);
         users.set("muted", false);
         users.set("vanished", false);
+        users.set("imported", false);
         users.set("gamemode", GameMode.SURVIVAL.toString());
         users.set("Timestamps.firstJoined", System.currentTimeMillis());
         users.set("Timestamps.lastSeasonStarted", System.currentTimeMillis());
