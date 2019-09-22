@@ -4,6 +4,7 @@ import com.ohneemc.OhneeMC;
 import com.ohneemc.util.UserData;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 
 import java.util.List;
@@ -56,7 +57,8 @@ public class Api {
         double z = location.getZ();
         float yaw = location.getYaw();
         float pitch = location.getPitch();
-        String world = location.getWorld().getName();
+
+        String world = player.getWorld().getName();
 
         UserData.users.set("homes." + name + ".x", x);
         UserData.users.set("homes." + name + ".y", y);
