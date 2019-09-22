@@ -110,6 +110,7 @@ commands:
   flyspeed:
     description: Set fly speed.
     usage: /flyspeed | /flyspeed <number> 1-3
+    aliases: [speed]
     permission: ohnee.flyspeed
     permission-message: You do not have access to this command /flyspeed.
   vanish:
