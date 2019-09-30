@@ -103,14 +103,9 @@ public class JoinQuit implements Listener {
         if (users == null){
             return;
         }
-        GameMode gamemode = GameMode.valueOf(users.getString("gamemode"));
-        if (gamemode == GameMode.CREATIVE){
-            player.setFlying(true);
-        }
-        player.setGameMode(gamemode);
 
         boolean fly = users.getBoolean("fly");
-        if (fly && player.hasPermission("ohnee.safe.fly")){
+        if (fly){
             UserData.setFly(player, fly);
         }else{
             UserData.setFly(player, false);
@@ -122,6 +117,13 @@ public class JoinQuit implements Listener {
         }else{
             UserData.setVanish(player, vanished);
         }
+
+        GameMode gamemode = GameMode.valueOf(users.getString("gamemode"));
+        if (gamemode == GameMode.CREATIVE){
+            UserData.setFly(player, true);
+            player.setFlying(true);
+        }
+        player.setGameMode(gamemode);
 
         float flySpeed = UserData.getFlySpeed(player);
         player.setFlySpeed(flySpeed);
