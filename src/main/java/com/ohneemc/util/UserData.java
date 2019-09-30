@@ -99,15 +99,14 @@ public class UserData {
             ConfigurationSection section = users.getConfigurationSection("homes");
             if (section != null) {
                 for (String i : section.getKeys(false)) {
-                    sb.append(i);
-                    sb.append(" ");
+                    sb.append(ChatColor.GOLD + i);
+                    sb.append(ChatColor.GREEN + ", ");
                 }
             } else {
                 player.sendMessage(ChatColor.GREEN + "You've no users yet. Use /sethome <name>");
                 return true;
             }
 
-            sb.append(" count: " + getHomeCount(player));
             player.sendMessage(sb.toString());
             return true;
         } else {
