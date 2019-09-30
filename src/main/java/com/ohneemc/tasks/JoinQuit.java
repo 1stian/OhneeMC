@@ -63,6 +63,7 @@ public class JoinQuit implements Listener {
         users.set("vanished", false);
         users.set("imported", false);
         users.set("flyspeed", 0.1);
+        users.set("name: ", player.getName());
         users.set("gamemode", GameMode.SURVIVAL.toString());
         users.set("Timestamps.firstJoined", System.currentTimeMillis());
         users.set("Timestamps.lastSeasonStarted", System.currentTimeMillis());
@@ -127,6 +128,7 @@ public class JoinQuit implements Listener {
 
         //Updating values
         users.set("Timestamps.lastSeasonStarted", System.currentTimeMillis());
+        users.set("name: ", player.getName());
 
         UserData.savePlayerFile(player);
     }
