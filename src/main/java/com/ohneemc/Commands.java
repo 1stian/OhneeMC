@@ -149,11 +149,13 @@ public class Commands implements CommandExecutor {
             if (command.getName().equalsIgnoreCase("spawn") && sender instanceof Player) {
                 Location spawn = WorldData.getSpawn(((Player) sender).getPlayer());
                 Maps.updateLastPlayerLocation(player);
-                if (Teleport.tpPlayerToLocation(player, spawn)){
-                    return true;
-                }else{
-                    sender.sendMessage(ChatColor.RED + "Something went wrong while executing spawn.");
-                    return true;
+                if (spawn != null) {
+                    if (Teleport.tpPlayerToLocation(player, spawn.add(0,0.3,0))){
+                        return true;
+                    }else{
+                        sender.sendMessage(ChatColor.RED + "Something went wrong while executing spawn.");
+                        return true;
+                    }
                 }
             }
 
