@@ -133,6 +133,11 @@ commands:
     usage: /afk
     permission: ohnee.afk
     permission-message: You do not have access to this command /afk.
+  kill:
+    description: Kill yourself..
+    usage: /kill
+    permission: ohnee.kill
+    permission-message: You do not have access to this command /kill.
   ohnee:
     description: Admin command.
     usage: /ohnee reload | version
@@ -186,4 +191,6 @@ permissions:
       ohnee.afk: true
       ohnee.spawn: true
       ohnee.sethome: true
+      ohnee.delhome: true
       ohnee.home: true
+      ohnee.kill: true
