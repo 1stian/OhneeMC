@@ -23,9 +23,6 @@ import static com.ohneemc.util.UserData.users;
 
 public class JoinQuit implements Listener {
 
-    private String joinMsg = Config.getString("general.join");
-    private String quitMsg = Config.getString("general.quit");
-
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
         //Putting players in their maps
@@ -33,7 +30,8 @@ public class JoinQuit implements Listener {
         Maps.lastAction.put(event.getPlayer().getUniqueId(), System.currentTimeMillis());
 
         //Join message
-        ChatColor.translateAlternateColorCodes('§', joinMsg);
+        //ChatColor.translateAlternateColorCodes('§', joinMsg);
+        String joinMsg = ChatColor.translateAlternateColorCodes('&', Config.getString("general.join"));
         String msg = joinMsg.replaceAll("\\{player}", event.getPlayer().getName());
         event.setJoinMessage(msg);
 
@@ -64,6 +62,7 @@ public class JoinQuit implements Listener {
         users.set("muted", false);
         users.set("vanished", false);
         users.set("imported", false);
+        users.set("flyspeed", 0.1);
         users.set("gamemode", GameMode.SURVIVAL.toString());
         users.set("Timestamps.firstJoined", System.currentTimeMillis());
         users.set("Timestamps.lastSeasonStarted", System.currentTimeMillis());
@@ -145,7 +144,8 @@ public class JoinQuit implements Listener {
         users.set("Timestamps.lastSeen", System.currentTimeMillis());
 
         //Quit message
-        ChatColor.translateAlternateColorCodes('§', quitMsg);
+        //ChatColor.translateAlternateColorCodes('§', quitMsg);
+        String quitMsg = ChatColor.translateAlternateColorCodes('&', Config.getString("general.quit"));
         String msg = quitMsg.replaceAll("\\{player}", event.getPlayer().getName());
         event.setQuitMessage(msg);
 
