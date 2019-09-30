@@ -95,7 +95,7 @@ public class WarpData {
                 float pitch = warps.getInt(name + ".pitch");
 
                 Location tp = new Location(Bukkit.getWorld(world), x, y, z, yaw, pitch);
-                player.teleport(tp);
+                player.teleport(tp.add(0,0.2,0));
                 return true;
             }
         } else {
