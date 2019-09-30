@@ -105,6 +105,7 @@ public class OhneeMC extends JavaPlugin {
         getCommand("back").setExecutor(new Commands());
         getCommand("invsee").setExecutor(new Commands());
         getCommand("afk").setExecutor(new Commands());
+        getCommand("kill").setExecutor(new Commands());
     }
 
     private void registerListeners(){
