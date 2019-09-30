@@ -148,6 +148,7 @@ public class Commands implements CommandExecutor {
 
             if (command.getName().equalsIgnoreCase("spawn") && sender instanceof Player) {
                 Location spawn = WorldData.getSpawn(((Player) sender).getPlayer());
+                Maps.updateLastPlayerLocation(player);
                 if (Teleport.tpPlayerToLocation(player, spawn)){
                     return true;
                 }else{
