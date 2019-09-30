@@ -12,23 +12,23 @@
 
 debug: false
 general:
-  #Join message
-  join: &a[+]§7 {player}
-  #Quit message
-  quit: &c[-]§7 {player}
+  # Join message
+  join: &a[+]&7 {player}
+  # Quit message
+  quit: &c[-]&7 {player}
 
 afk:
-  #How long it takes to be afk in minutes.
+  # How long it takes to be afk in minutes.
   time: 5
-  #Cancel afk on chat.
+  # Cancel afk on chat.
   chat: true
 
 teleport:
-  #How long the Tpa and Tpahere request should last(In seconds).
+  # How long the Tpa and Tpahere request should last(In seconds).
   timeout: 30
 
 homes:
-  #How many homes a group may have. This must match your groups name.
+  # How many homes a group may have. This must match your groups name.
   default: 1
   regular: 2
   trusted: 3
@@ -36,7 +36,7 @@ homes:
 kits:
   # Whether to give the starter kit or not.
   givestarter: true
-  starter: #The kit players will get when they join for the first time.
+  starter: # The kit players will get when they join for the first time.
     - "stone_sword:1"
     - "stone_axe:1"
     - "stone_pickaxe:1"
@@ -47,5 +47,5 @@ kits:
     - "leather_boots:1"
     - "torch:14"
 
-#Please do not change or delete this!
+# Please do not change or delete this!
 ConfigVersion: 1.0
