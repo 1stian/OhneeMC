@@ -192,7 +192,7 @@ public class UserData {
      *
      * @param player return players home count.
      */
-    private static Integer getHomeCount(Player player) {
+    public static Integer getHomeCount(Player player) {
         users = loadPlayerFile(player);
         if (users != null) {
             int count = 0;
