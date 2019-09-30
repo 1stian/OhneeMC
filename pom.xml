@@ -83,10 +83,6 @@
                             <!-- Replace this with your package! -->
                             <shadedPattern>com.ohneemc.OhneeMC</shadedPattern>
                         </relocation>
-                        <relocation>
-                            <pattern>de.leonhard</pattern>
-                            <shadedPattern>com.ohneemc.OhneeMC</shadedPattern>
-                        </relocation>
                     </relocations>
                 </configuration>
                 <executions>
