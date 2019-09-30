@@ -13,9 +13,9 @@
 debug: false
 general:
   #Join message
-  join: §a[+]§7 {player}
+  join: &a[+]§7 {player}
   #Quit message
-  quit: §c[-]§7 {player}
+  quit: &c[-]§7 {player}
 
 afk:
   #How long it takes to be afk in minutes.
