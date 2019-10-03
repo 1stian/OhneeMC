@@ -191,6 +191,7 @@ public class Commands implements CommandExecutor {
                 player.setHealth(0);
                 player.sendMessage(ChatColor.GREEN + "You killed yourself..");
                 Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + ChatColor.GREEN + " choose the easy way out....");
+                return true;
             }
             //</editor-fold>
 
