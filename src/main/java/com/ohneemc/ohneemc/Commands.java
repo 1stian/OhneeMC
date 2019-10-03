@@ -1,12 +1,14 @@
-package com.ohneemc;
+package com.ohneemc.ohneemc;
 
 import com.ohneemc.commands.*;
-import com.ohneemc.helpers.InventoryCreator;
-import com.ohneemc.helpers.Teleport;
-import com.ohneemc.util.Maps;
-import com.ohneemc.util.UserData;
-import com.ohneemc.util.WarpData;
-import com.ohneemc.util.WorldData;
+import com.ohneemc.ohneemc.helpers.InventoryCreator;
+import com.ohneemc.ohneemc.helpers.Teleport;
+import com.ohneemc.ohneemc.commands.Admin;
+import com.ohneemc.ohneemc.commands.Tp;
+import com.ohneemc.ohneemc.util.Maps;
+import com.ohneemc.ohneemc.util.UserData;
+import com.ohneemc.ohneemc.util.WarpData;
+import com.ohneemc.ohneemc.util.WorldData;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -308,7 +310,7 @@ public class Commands implements CommandExecutor {
                 if (Tp.doTp(((Player) sender).getPlayer(), args)) {
                     return true;
                 } else {
-                    sender.sendMessage(ChatColor.RED + "Something went wrong while executing tp.");
+                    sender.sendMessage(ChatColor.RED + "usage: /tp <name> | /tp <name> to <name2>");
                     return true;
                 }
             }
@@ -319,7 +321,7 @@ public class Commands implements CommandExecutor {
                 if (Tp.doTpHere(((Player) sender).getPlayer(), args)) {
                     return true;
                 } else {
-                    sender.sendMessage(ChatColor.RED + "Something went wrong while executing tphere.");
+                    sender.sendMessage(ChatColor.RED + "usage: /tphere <name>");
                     return true;
                 }
             }
@@ -331,7 +333,7 @@ public class Commands implements CommandExecutor {
                 if (Tp.doTpa(((Player) sender).getPlayer(), args)) {
                     return true;
                 } else {
-                    sender.sendMessage(ChatColor.RED + "Something went wrong while executing tpa.");
+                    sender.sendMessage(ChatColor.RED + "usage: /tpa <name>");
                     return true;
                 }
             }
@@ -342,7 +344,7 @@ public class Commands implements CommandExecutor {
                 if (Tp.doTpahere(((Player) sender).getPlayer(), args)) {
                     return true;
                 } else {
-                    sender.sendMessage(ChatColor.RED + "Something went wrong while executing tpa.");
+                    sender.sendMessage(ChatColor.RED + "usage: /tpahere <name>");
                     return true;
                 }
             }

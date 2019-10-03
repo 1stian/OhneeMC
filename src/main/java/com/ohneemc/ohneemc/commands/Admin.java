@@ -1,8 +1,8 @@
-package com.ohneemc.commands;
+package com.ohneemc.ohneemc.commands;
 
-import com.ohneemc.OhneeMC;
-import com.ohneemc.util.Config;
-import com.ohneemc.util.UserData;
+import com.ohneemc.ohneemc.OhneeMC;
+import com.ohneemc.ohneemc.util.Config;
+import com.ohneemc.ohneemc.util.UserData;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
 import org.bukkit.entity.Player;

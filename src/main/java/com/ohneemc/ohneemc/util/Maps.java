@@ -1,4 +1,4 @@
-package com.ohneemc.util;
+package com.ohneemc.ohneemc.util;
 
 import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;

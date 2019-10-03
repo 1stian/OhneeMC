@@ -1,7 +1,7 @@
-package com.ohneemc.commands;
+package com.ohneemc.ohneemc.commands;
 
-import com.ohneemc.helpers.Teleport;
-import com.ohneemc.util.Maps;
+import com.ohneemc.ohneemc.helpers.Teleport;
+import com.ohneemc.ohneemc.util.Maps;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -18,9 +18,12 @@ public class Tp {
             target = Bukkit.getPlayer(args[0]);
             target2 = Bukkit.getPlayer(args[1]);
             if (Teleport.tpPlayerToPlayer(target, target2))
+            {
                 player.sendMessage(ChatColor.GOLD + target.getName() + ChatColor.GREEN
                         + " has been teleported to " + target2.getName());
                 return true;
+            }
+            return false;
         }
 
         //Teleports sender to target.

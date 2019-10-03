@@ -1,6 +1,6 @@
-package com.ohneemc.tasks;
+package com.ohneemc.ohneemc.tasks;
 
-import com.ohneemc.util.Maps;
+import com.ohneemc.ohneemc.util.Maps;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

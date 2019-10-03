@@ -2,7 +2,7 @@ name: OhneeMC
 version: ${project.version}
 author: Stian "1stian" Tofte
 website: https://ohneemc.com
-main: com.ohneemc.OhneeMC
+main: com.ohneemc.ohneemc.OhneeMC
 depend: [PlaceholderAPI, Vault]
 api-version: "1.14"
 prefix: OhneeMC

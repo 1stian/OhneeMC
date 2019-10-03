@@ -81,7 +81,7 @@
                         <relocation>
                             <pattern>org.bstats</pattern>
                             <!-- Replace this with your package! -->
-                            <shadedPattern>com.ohneemc.OhneeMC</shadedPattern>
+                            <shadedPattern>com.ohneemc.ohneemc.OhneeMC</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>

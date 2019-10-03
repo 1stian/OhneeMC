@@ -1,10 +1,11 @@
-package com.ohneemc;
+package com.ohneemc.ohneemc;
 
-import com.ohneemc.api.Api;
+import com.ohneemc.ohneemc.api.Api;
+import com.ohneemc.ohneemc.tasks.*;
+import com.ohneemc.ohneemc.util.Maps;
+import com.ohneemc.ohneemc.util.Placeholder;
 import com.ohneemc.tasks.*;
-import com.ohneemc.util.Config;
-import com.ohneemc.util.Maps;
-import com.ohneemc.util.Placeholder;
+import com.ohneemc.ohneemc.util.Config;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
@@ -15,7 +16,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class OhneeMC extends JavaPlugin {
 
     public static OhneeMC instance;
-    public static Api Api = new Api();
+    public static com.ohneemc.ohneemc.api.Api Api = new Api();
     public static boolean debug = Config.getBoolean("debug");
 
     //Vault

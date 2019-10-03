@@ -1,6 +1,6 @@
-package com.ohneemc.util;
+package com.ohneemc.ohneemc.util;
 
-import com.ohneemc.OhneeMC;
+import com.ohneemc.ohneemc.OhneeMC;
 import org.bukkit.*;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -11,7 +11,6 @@ import org.bukkit.inventory.Inventory;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class UserData {
 

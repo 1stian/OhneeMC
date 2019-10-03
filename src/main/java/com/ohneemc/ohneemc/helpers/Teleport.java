@@ -1,4 +1,4 @@
-package com.ohneemc.helpers;
+package com.ohneemc.ohneemc.helpers;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
