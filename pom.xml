@@ -95,12 +95,6 @@
                 </executions>
             </plugin>
         </plugins>
+        <finalName>OhneeMC</finalName>
     </build>
-
-    <distributionManagement>
-        <repository>
-            <id>OhneeMC</id>
-            <url>http://ci.ohneemc.com:8080/job/OhneeMC/9/maven-repository/repository/</url>
-        </repository>
-    </distributionManagement>
 </project>
