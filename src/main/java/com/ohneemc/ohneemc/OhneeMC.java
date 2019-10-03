@@ -4,7 +4,7 @@ import com.ohneemc.ohneemc.api.Api;
 import com.ohneemc.ohneemc.tasks.*;
 import com.ohneemc.ohneemc.util.Maps;
 import com.ohneemc.ohneemc.util.Placeholder;
-import com.ohneemc.tasks.*;
+import com.ohneemc.ohneemc.tasks.*;
 import com.ohneemc.ohneemc.util.Config;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
