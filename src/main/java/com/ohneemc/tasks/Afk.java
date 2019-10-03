@@ -4,7 +4,6 @@ import com.ohneemc.OhneeMC;
 import com.ohneemc.util.Config;
 import com.ohneemc.util.Maps;
 import com.ohneemc.util.UserData;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
