@@ -1,6 +1,5 @@
 package com.ohneemc.ohneemc;
 
-import com.ohneemc.ohneemc.commands.*;
 import com.ohneemc.ohneemc.helpers.InventoryCreator;
 import com.ohneemc.ohneemc.helpers.Teleport;
 import com.ohneemc.ohneemc.commands.Admin;
