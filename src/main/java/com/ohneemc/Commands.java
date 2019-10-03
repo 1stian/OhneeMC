@@ -190,7 +190,7 @@ public class Commands implements CommandExecutor {
             if (command.getName().equalsIgnoreCase("kill") && sender instanceof Player) {
                 player.setHealth(0);
                 player.sendMessage(ChatColor.GREEN + "You killed yourself..");
-                Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + ChatColor.GREEN + " chose the easy way out....");
+                Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + ChatColor.GREEN + " choose the easy way out....");
             }
             //</editor-fold>
 
