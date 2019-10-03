@@ -6,7 +6,7 @@
 
     <groupId>com.ohneemc.ohneemc</groupId>
     <artifactId>OhneeMC</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.${BUILD_NUMBER}</version>
 
     <repositories>
         <repository>
@@ -95,6 +95,5 @@
                 </executions>
             </plugin>
         </plugins>
-        <finalName>OhneeMC</finalName>
     </build>
 </project>
