@@ -54,18 +54,21 @@ public class Tp {
 
         if (args.length == 1){
             target = Bukkit.getPlayer(args[0]);
-            if (target != null)
+            if (target != null){
                 if (Maps.setRequest(player, target, false)){
                     player.sendMessage(ChatColor.GREEN + "You've sent a request to: " + ChatColor.GOLD
                             + target.getName());
                     target.sendMessage(ChatColor.GREEN + "You've received a teleport request from "
-                    + ChatColor.GOLD + player.getName());
+                            + ChatColor.GOLD + player.getName());
                     return true;
                 }else{
                     player.sendMessage(ChatColor.GREEN
                             + "We couldn't find the player you specified... Please try again.");
                     return true;
                 }
+            }else{
+                return false;
+            }
         }
         return false;
     }
@@ -77,7 +80,7 @@ public class Tp {
 
         if (args.length == 1){
             target = Bukkit.getPlayer(args[0]);
-            if (target != null)
+            if (target != null){
                 if (Maps.setRequest(player, target, true)){
                     player.sendMessage(ChatColor.GREEN + "You've sent a request to: " + ChatColor.GOLD
                             + target.getName());
@@ -89,6 +92,9 @@ public class Tp {
                             + "We couldn't find the player you specified... Please try again.");
                     return true;
                 }
+            }else {
+                return false;
+            }
         }
         return false;
     }
