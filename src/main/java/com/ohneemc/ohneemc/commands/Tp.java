@@ -56,10 +56,10 @@ public class Tp {
             target = Bukkit.getPlayer(args[0]);
             if (target != null){
                 if (Maps.setRequest(player, target, false)){
-                    player.sendMessage(ChatColor.GREEN + "You've sent a request to: " + ChatColor.GOLD
+                    player.sendMessage(ChatColor.GREEN + "You've sent a TPA request to: " + ChatColor.GOLD
                             + target.getName());
                     target.sendMessage(ChatColor.GREEN + "You've received a teleport request from "
-                            + ChatColor.GOLD + player.getName());
+                            + ChatColor.GOLD + player.getName() + ChatColor.GREEN + " - Use /tpaccept or /tpdeny");
                     return true;
                 }else{
                     player.sendMessage(ChatColor.GREEN
@@ -82,10 +82,10 @@ public class Tp {
             target = Bukkit.getPlayer(args[0]);
             if (target != null){
                 if (Maps.setRequest(player, target, true)){
-                    player.sendMessage(ChatColor.GREEN + "You've sent a request to: " + ChatColor.GOLD
+                    player.sendMessage(ChatColor.GREEN + "You've sent a TPA here request to: " + ChatColor.GOLD
                             + target.getName());
                     target.sendMessage(ChatColor.GREEN + "You've been asked to be teleported to "
-                            + ChatColor.GOLD + player.getName());
+                            + ChatColor.GOLD + player.getName() + ChatColor.GREEN + " - Use /tpaccept or /tpdeny");
                     return true;
                 }else{
                     player.sendMessage(ChatColor.GREEN
