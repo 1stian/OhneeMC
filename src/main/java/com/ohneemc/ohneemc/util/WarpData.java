@@ -20,7 +20,7 @@ public class WarpData {
     //Warp Section
     public static boolean setWarp(Player player, String[] args) {
         if (args != null) {
-            String name = args[0];
+            String name = args[0].toLowerCase();
             warps = loadWarpFile();
             if (warps != null) {
                 Location location = getPlayerLocation(player);
