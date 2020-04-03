@@ -58,6 +58,7 @@ public class JoinQuit implements Listener {
             return;
         }
         users.set("fly", false);
+        users.set("glow", false);
         users.set("banned", false);
         users.set("muted", false);
         users.set("vanished", false);
@@ -111,6 +112,9 @@ public class JoinQuit implements Listener {
             UserData.setFly(player, false);
         }
 
+        boolean glow = users.getBoolean("glow");
+        UserData.setGlow(player, glow);
+
         boolean vanished = users.getBoolean("vanished");
         if (vanished){
             UserData.setVanish(player, vanished);
@@ -146,6 +150,7 @@ public class JoinQuit implements Listener {
             return;
         }
         users.set("Timestamps.lastSeen", System.currentTimeMillis());
+        users.set("glow", event.getPlayer().isGlowing());
 
         //Quit message
         //ChatColor.translateAlternateColorCodes('§', quitMsg);

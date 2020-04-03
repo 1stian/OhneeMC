@@ -240,6 +240,8 @@ public class UserData {
     }
     //</editor-fold>
 
+    public static void setGlow(Player player, boolean glow) { player.setGlowing(glow); }
+
     //<editor-fold desc="Afk">
 
     /**
