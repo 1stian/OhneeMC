@@ -12,7 +12,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.logging.Logger;
+
 public class OhneeMC extends JavaPlugin {
+    private static final Logger log = Logger.getLogger("Minecraft");
 
     public static OhneeMC instance;
     public static com.ohneemc.ohneemc.api.Api Api = new Api();
@@ -47,9 +50,11 @@ public class OhneeMC extends JavaPlugin {
         //Start the checkers.
         startChecker();
         //Initiate vault
-        setupEconomy();
-        setupChat();
-        setupPermissions();
+        if (!setupEconomy() || !setupChat() || !setupPermissions()) {
+            log.severe(String.format("[%s] - Disabled due to no Vault dependency found!", getDescription().getName()));
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
         //Load groups
         Maps.loadGroups();
     }
