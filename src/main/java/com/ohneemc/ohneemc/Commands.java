@@ -2,6 +2,7 @@ package com.ohneemc.ohneemc;
 
 import com.ohneemc.ohneemc.commands.General;
 import com.ohneemc.ohneemc.helpers.InventoryCreator;
+import com.ohneemc.ohneemc.helpers.MessageHelper;
 import com.ohneemc.ohneemc.helpers.Teleport;
 import com.ohneemc.ohneemc.commands.Admin;
 import com.ohneemc.ohneemc.commands.Tp;
@@ -190,10 +191,15 @@ public class Commands implements CommandExecutor {
             }
 
             if (command.getName().equalsIgnoreCase("kill") && sender instanceof Player) {
-                player.setHealth(0);
-                player.sendMessage(ChatColor.GREEN + "You killed yourself..");
-                Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + ChatColor.GREEN + " choose the easy way out....");
-                return true;
+                if (args.length < 1){
+                    MessageHelper.sendMessage(player, "Kill yourself? do /kill confirm");
+                    return true;
+                }else if (args[0].equalsIgnoreCase("confirm")){
+                    player.setHealth(0);
+                    player.sendMessage(ChatColor.GREEN + "You killed yourself..");
+                    Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + ChatColor.GREEN + " choose the easy way out....");
+                    return true;
+                }
             }
 
             if (command.getName().equalsIgnoreCase("glow") && sender instanceof Player) {
