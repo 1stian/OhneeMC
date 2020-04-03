@@ -35,6 +35,10 @@ public class OhneeMC extends JavaPlugin {
 
         if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
             new Placeholder(this).register();
+        }else{
+            log.severe(String.format("[%s] - Disabled due to no PlaceholderAPI dependency found!", getDescription().getName()));
+            getServer().getPluginManager().disablePlugin(this);
+            return;
         }
 
         //Save config to disk.
