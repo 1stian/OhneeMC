@@ -95,6 +95,5 @@
                 </executions>
             </plugin>
         </plugins>
-        <finalName>OhneeMC</finalName>
     </build>
 </project>
