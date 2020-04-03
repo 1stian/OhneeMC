@@ -132,7 +132,7 @@ public class JoinQuit implements Listener {
 
         //Updating values
         users.set("Timestamps.lastSeasonStarted", System.currentTimeMillis());
-        users.set("name: ", player.getName());
+        users.set("name", player.getName());
 
         UserData.savePlayerFile(player);
     }
