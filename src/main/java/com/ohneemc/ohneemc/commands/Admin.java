@@ -1,6 +1,7 @@
 package com.ohneemc.ohneemc.commands;
 
 import com.ohneemc.ohneemc.OhneeMC;
+import com.ohneemc.ohneemc.helpers.MessageHelper;
 import com.ohneemc.ohneemc.util.Config;
 import com.ohneemc.ohneemc.util.UserData;
 import org.bukkit.ChatColor;
@@ -23,14 +24,17 @@ public class Admin {
         if (world != null && args.length > 0){
             String weather = args[0];
             if (weather.equalsIgnoreCase("clear")){
+                MessageHelper.sendMessage(player, "Weather set to clear.");
                 world.setStorm(false);
                 world.setThunderDuration(0);
                 return true;
             }else if (weather.equalsIgnoreCase("storm")){
+                MessageHelper.sendMessage(player, "Weather set to storm.");
                 world.setStorm(true);
                 return true;
             }else if(weather.equalsIgnoreCase("thunder") && args.length == 2) {
                 int duration = Integer.parseInt(args[1]) * 60 * 1000;
+                MessageHelper.sendMessage(player, "Weather set to storm.");
                 world.setThunderDuration(duration);
                 return true;
             }else{
