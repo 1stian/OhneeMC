@@ -18,6 +18,12 @@ public class Admin {
         return OhneeMC.instance.getDescription().getVersion();
     }
 
+    /**
+     *
+     * @param player Player to grab the current world.
+     * @param args What weather to select. clear | storm | thunder
+     * @return true if successful. Otherwise false.
+     */
     public static boolean setWeather(Player player, String[] args){
         World world = UserData.getPlayerLocation(player).getWorld();
 
@@ -49,6 +55,12 @@ public class Admin {
         }
     }
 
+    /**
+     *
+     * @param player Player to grab the current world.
+     * @param args What time to select. morning | day | night | midnight
+     * @return true if successful. Otherwise false.
+     */
     public static boolean setTime(Player player, String[] args){
         World world = UserData.getPlayerLocation(player).getWorld();
 
