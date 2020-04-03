@@ -35,6 +35,12 @@ public class JoinQuit implements Listener {
         String msg = joinMsg.replaceAll("\\{player}", event.getPlayer().getName());
         event.setJoinMessage(msg);
 
+        //Create UserData folder
+        File udir = new File(OhneeMC.instance.getDataFolder().toString() + "/userdata/");
+        if (!udir.exists()){
+            udir.mkdir();
+        }
+
         //Create UserData file
         String uuid = event.getPlayer().getUniqueId().toString();
         File UserFile = new File(OhneeMC.instance.getDataFolder() +"/userdata/"+uuid+".yml");
