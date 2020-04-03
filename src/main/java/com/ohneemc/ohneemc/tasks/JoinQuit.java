@@ -70,7 +70,7 @@ public class JoinQuit implements Listener {
         users.set("vanished", false);
         users.set("imported", false);
         users.set("flyspeed", 0.1);
-        users.set("name: ", player.getName());
+        users.set("name", player.getName());
         users.set("gamemode", GameMode.SURVIVAL.toString());
         users.set("Timestamps.firstJoined", System.currentTimeMillis());
         users.set("Timestamps.lastSeasonStarted", System.currentTimeMillis());
@@ -112,21 +112,13 @@ public class JoinQuit implements Listener {
         }
 
         boolean fly = users.getBoolean("fly");
-        if (fly){
-            UserData.setFly(player, fly);
-        }else{
-            UserData.setFly(player, false);
-        }
+        UserData.setFly(player, fly);
 
         boolean glow = users.getBoolean("glow");
         UserData.setGlow(player, glow);
 
         boolean vanished = users.getBoolean("vanished");
-        if (vanished){
-            UserData.setVanish(player, vanished);
-        }else{
-            UserData.setVanish(player, vanished);
-        }
+        UserData.setVanish(player, vanished);
 
         GameMode gamemode = GameMode.valueOf(users.getString("gamemode"));
         if (gamemode == GameMode.CREATIVE){
