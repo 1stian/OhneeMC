@@ -16,11 +16,11 @@ public class General {
         if (args.length < 1 && player != null){
             if (player.isGlowing()){
                 player.setGlowing(false);
-                MessageHelper.sendMessage(player, "you're now glowing!");
+                MessageHelper.sendMessage(player, "you're no longer glowing!");
                 return true;
             }else{
                 player.setGlowing(true);
-                MessageHelper.sendMessage(player, "you're no longer glowing!");
+                MessageHelper.sendMessage(player, "you're now glowing!");
                 return true;
             }
         }
@@ -30,13 +30,13 @@ public class General {
             if (player != null && target != null){
                 if (target.isGlowing()){
                     target.setGlowing(false);
-                    MessageHelper.sendMessage(player, "You made " + target.getDisplayName() + " glow!");
-                    MessageHelper.sendMessage(target, "you're now glowing!");
+                    MessageHelper.sendMessage(player, "You ended " + target.getDisplayName() + " glow prettiness!");
+                    MessageHelper.sendMessage(target, "you're no longer glowing!");
                     return true;
                 }else{
                     target.setGlowing(true);
-                    MessageHelper.sendMessage(player, "You ended " + target.getDisplayName() + " glow prettiness!");
-                    MessageHelper.sendMessage(target, "you're no longer glowing!");
+                    MessageHelper.sendMessage(player, "You made " + target.getDisplayName() + " glow!");
+                    MessageHelper.sendMessage(target, "you're now glowing!");
                     return true;
                 }
             }
