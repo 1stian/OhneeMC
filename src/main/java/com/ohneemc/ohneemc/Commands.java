@@ -1,5 +1,6 @@
 package com.ohneemc.ohneemc;
 
+import com.ohneemc.ohneemc.commands.General;
 import com.ohneemc.ohneemc.helpers.InventoryCreator;
 import com.ohneemc.ohneemc.helpers.Teleport;
 import com.ohneemc.ohneemc.commands.Admin;
@@ -194,6 +195,12 @@ public class Commands implements CommandExecutor {
                 Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + ChatColor.GREEN + " choose the easy way out....");
                 return true;
             }
+
+            if (command.getName().equalsIgnoreCase("glow") && sender instanceof Player) {
+                //sender.sendMessage(ChatColor.RED + "Something went wrong while executing glow.");
+                return General.setGlowing(player, args);
+            }
+
             //</editor-fold>
 
             //<editor-fold desc="Gamemode">
