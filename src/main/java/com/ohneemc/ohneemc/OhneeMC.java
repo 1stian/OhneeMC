@@ -33,6 +33,7 @@ public class OhneeMC extends JavaPlugin {
     public void onEnable(){
         instance = this;
 
+        //Initiate PlaceholderAPI
         if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
             new Placeholder(this).register();
         }else{
@@ -40,7 +41,6 @@ public class OhneeMC extends JavaPlugin {
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
-
         //Save config to disk.
         saveResource("config.yml", false);
         saveResource("warps.yml", false);
