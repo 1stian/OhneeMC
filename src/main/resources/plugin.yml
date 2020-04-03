@@ -138,6 +138,11 @@ commands:
     usage: /kill
     permission: ohnee.kill
     permission-message: You do not have access to this command /kill.
+  glow:
+    description: Make yourself glow or another player glow.
+    usage: /glow | /glow <name>
+    permission: ohnee.glow
+    permission-message: You do not have access to this command /glow.
   ohnee:
     description: Admin command.
     usage: /ohnee reload | version
@@ -160,6 +165,7 @@ permissions:
       ohnee.setwarp: true
       ohnee.ohnee: true
       ohnee.fly: true
+      ohnee.glow: true
   ohnee.admin:
     default: false
     description: Acces to all commands, but can't reload the plugin.
@@ -175,6 +181,7 @@ permissions:
       ohnee.setwarp: true
       ohnee.fly: true
       ohnee.gamemode: true
+      ohnee.glow: true
   ohnee.tpa:
     default: false
     description: Acces to basic usage of the plugin.
