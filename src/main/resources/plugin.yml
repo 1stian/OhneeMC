@@ -4,7 +4,7 @@ author: Stian "1stian" Tofte
 website: https://ohneemc.com
 main: com.ohneemc.ohneemc.OhneeMC
 depend: [PlaceholderAPI, Vault]
-api-version: "1.14"
+api-version: "1.15"
 prefix: OhneeMC
 commands:
   tp:
