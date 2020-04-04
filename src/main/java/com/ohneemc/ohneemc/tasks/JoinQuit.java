@@ -149,6 +149,8 @@ public class JoinQuit implements Listener {
         }
         users.set("Timestamps.lastSeen", System.currentTimeMillis());
         users.set("glow", event.getPlayer().isGlowing());
+        users.set("fly", event.getPlayer().isFlying());
+        users.set("gamemode", event.getPlayer().getGameMode().toString());
 
         //Quit message
         //ChatColor.translateAlternateColorCodes('§', quitMsg);
