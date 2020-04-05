@@ -226,7 +226,7 @@ public class UserData {
      * @param player Returns their gamemode
      */
     public static GameMode getGamemode(Player player) {
-        return player.getGameMode();
+        return GameMode.valueOf(Config.getString("gamemode"));
     }
 
     /**
