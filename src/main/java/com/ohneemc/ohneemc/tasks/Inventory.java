@@ -29,7 +29,7 @@ public class Inventory implements Listener {
             return;
         }
 
-        String playerName = split[1];
+        String playerName = split[1].trim();
 
         if (openInvNames.contains(ChatColor.DARK_GREEN + "Invsee " + ChatColor.GOLD + playerName)){
             if (invTitle.equalsIgnoreCase(ChatColor.DARK_GREEN + "Invsee " + ChatColor.GOLD + playerName)) {
