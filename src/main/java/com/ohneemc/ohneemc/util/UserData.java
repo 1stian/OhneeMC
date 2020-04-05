@@ -11,6 +11,7 @@ import org.bukkit.inventory.Inventory;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
 
 public class UserData {
 
@@ -32,6 +33,12 @@ public class UserData {
             if (users != null) {
                 //Getting player group and their max allowed homes.
                 String playerGroup = Vault.getGroup(player);
+
+                if (Maps.getMaxHomes().get(playerGroup) == null){
+                    OhneeMC.instance.getLogger().log(Level.SEVERE, "There are no home count defined for your group " + getGroup(player) + ", contact your administrator.");
+                    player.sendMessage("There are no home count defined for your group " + getGroup(player) + ", contact your administrator.");
+                }
+
                 int maxPlayerHomes = Maps.getMaxHomes().get(playerGroup);
 
                 if (getHomeCount(player) == maxPlayerHomes){
@@ -418,6 +425,14 @@ public class UserData {
         }
 
         return "";
+    }
+
+    public static String getGroup(Player player){
+        if (player == null){
+            return null;
+        }
+
+        return OhneeMC.perms.getPrimaryGroup(player);
     }
 
     //<editor-fold desc="File section">
