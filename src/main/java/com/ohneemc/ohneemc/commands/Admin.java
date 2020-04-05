@@ -4,6 +4,7 @@ import com.ohneemc.ohneemc.OhneeMC;
 import com.ohneemc.ohneemc.helpers.MessageHelper;
 import com.ohneemc.ohneemc.util.Config;
 import com.ohneemc.ohneemc.util.UserData;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -88,5 +89,23 @@ public class Admin {
             player.sendMessage(ChatColor.GREEN + "/time morning | day | night | midnight");
             return true;
         }
+    }
+
+    /**
+     *
+     * @param player Player to list homes to.
+     * @param args  Target player to grab homes from.
+     * @return Returns a string of homes.
+     */
+    public static String getPlayerHomes(Player player, String[] args){
+        if (player == null && args.length == 0){
+            return "Couldn't find the player you wanted...";
+        }
+
+        Player target = Bukkit.getPlayer(args[0]);
+        if (target == null){
+            return "Couldn't find player.";
+        }
+        return target.getDisplayName() + " homes: " + UserData.getHomes(target);
     }
 }
