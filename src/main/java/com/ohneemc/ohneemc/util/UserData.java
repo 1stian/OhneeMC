@@ -37,6 +37,7 @@ public class UserData {
                 if (Maps.getMaxHomes().get(playerGroup) == null){
                     OhneeMC.instance.getLogger().log(Level.SEVERE, "There are no home count defined for your group " + playerGroup + ", contact your administrator.");
                     player.sendMessage("There are no home count defined for your group " + playerGroup + ", contact your administrator.");
+                    return false;
                 }
 
                 int maxPlayerHomes = Maps.getMaxHomes().get(playerGroup);
