@@ -19,14 +19,14 @@ public class Inventory implements Listener {
         org.bukkit.inventory.Inventory open = event.getClickedInventory();
         InventoryView title = event.getView();
         String invTitle = title.getTitle();
-        String playerName = title.getPlayer().getName();
+        String[] split = invTitle.split(" ");
+        String playerName = split[1];
 
         if (open == null) {
             return;
         }
 
-        if (openInvNames.contains(ChatColor.DARK_GREEN + "Invsee "
-                + ChatColor.GOLD + playerName)){
+        if (openInvNames.contains(ChatColor.DARK_GREEN + "Invsee " + ChatColor.GOLD + playerName)){
             if (invTitle.equalsIgnoreCase(ChatColor.DARK_GREEN + "Invsee " + ChatColor.GOLD + playerName)) {
                 event.setCancelled(true);
             }
