@@ -142,6 +142,17 @@ public class Commands implements CommandExecutor {
                     return true;
                 }
             }
+
+            if (command.getName().equalsIgnoreCase("listhome") && sender instanceof Player) {
+                if (args.length == 1){
+                    player.sendMessage(Admin.getPlayerHomes(player, args));
+                }else{
+                    player.sendMessage(ChatColor.GREEN + "Missing target name... /listhome <name>");
+                    return true;
+                }
+            }
+
+
             //</editor-fold>
 
             //<editor-fold desc="General commands">
