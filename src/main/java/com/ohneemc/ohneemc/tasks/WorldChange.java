@@ -7,7 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 
-public class WorldChangeListener implements Listener {
+public class WorldChange implements Listener {
 
     @EventHandler
     public void worldChange(PlayerChangedWorldEvent event) {
