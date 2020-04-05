@@ -109,7 +109,7 @@ public class UserData {
                     sb.append(ChatColor.GREEN + ", ");
                 }
             } else {
-                player.sendMessage(ChatColor.GREEN + "You've no users yet. Use /sethome <name>");
+                player.sendMessage(ChatColor.GREEN + "You've no homes yet. Use /sethome <name>");
                 return true;
             }
 
