@@ -19,7 +19,7 @@ public class Inventory implements Listener {
         org.bukkit.inventory.Inventory open = event.getClickedInventory();
         InventoryView title = event.getView();
         String invTitle = title.getTitle();
-        String[] split = invTitle.split(" ");
+        String[] split = title.getTitle().split(" ");
 
         if (open == null) {
             return;

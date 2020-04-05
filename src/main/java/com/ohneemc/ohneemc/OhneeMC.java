@@ -123,7 +123,7 @@ public class OhneeMC extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new JoinQuit(), this);
         getServer().getPluginManager().registerEvents(new Afk(), this);
         getServer().getPluginManager().registerEvents(new Death(), this);
-        getServer().getPluginManager().registerEvents(new Inventory(), this);
+        //getServer().getPluginManager().registerEvents(new Inventory(), this);
         getServer().getPluginManager().registerEvents(new WorldChange(), this);
     }
 
