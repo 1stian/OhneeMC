@@ -148,6 +148,11 @@ commands:
     usage: /ohnee reload | version
     permission: ohnee.ohnee
     permission-message: You do not have access to this command /ohnee.
+  listhome:
+    description: Admin command, list homes from another player.
+    usage: /listhome <name>
+    permission: ohnee.listhome
+    permission-message: You do not have access to this command /listhome.
 permissions:
   ohnee.*:
     default: false
@@ -166,6 +171,7 @@ permissions:
       ohnee.ohnee: true
       ohnee.fly: true
       ohnee.glow: true
+      ohnee.listhome: true
   ohnee.admin:
     default: false
     description: Acces to all commands, but can't reload the plugin.
@@ -182,6 +188,7 @@ permissions:
       ohnee.fly: true
       ohnee.gamemode: true
       ohnee.glow: true
+      ohnee.listhome: true
   ohnee.tpa:
     default: false
     description: Acces to basic usage of the plugin.
