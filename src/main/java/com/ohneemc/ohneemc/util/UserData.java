@@ -35,8 +35,8 @@ public class UserData {
                 String playerGroup = Vault.getGroup(player);
 
                 if (Maps.getMaxHomes().get(playerGroup) == null){
-                    OhneeMC.instance.getLogger().log(Level.SEVERE, "There are no home count defined for your group " + getGroup(player) + ", contact your administrator.");
-                    player.sendMessage("There are no home count defined for your group " + getGroup(player) + ", contact your administrator.");
+                    OhneeMC.instance.getLogger().log(Level.SEVERE, "There are no home count defined for your group " + playerGroup + ", contact your administrator.");
+                    player.sendMessage("There are no home count defined for your group " + playerGroup + ", contact your administrator.");
                 }
 
                 int maxPlayerHomes = Maps.getMaxHomes().get(playerGroup);

@@ -69,6 +69,7 @@ public class Config {
     public static boolean reloadConfig(){
         try {
             OhneeMC.instance.reloadConfig();
+            Maps.loadGroups();
             return true;
         }catch (Exception e) {error(e); return false;}
     }
