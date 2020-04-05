@@ -25,7 +25,7 @@ public class Inventory implements Listener {
             return;
         }
 
-        if (split.length < 1){
+        if (split.length < 2){
             return;
         }
 
