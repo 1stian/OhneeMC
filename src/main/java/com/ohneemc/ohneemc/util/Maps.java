@@ -28,6 +28,7 @@ public class Maps {
     public static HashMap<String, Integer> getMaxHomes() { return maxHomes; }
 
     public static void loadGroups(){
+        maxHomes.clear();
         ConfigurationSection homes = Config.getSection("homes");
         if (homes != null) {
             for (String i : homes.getKeys(false)){
