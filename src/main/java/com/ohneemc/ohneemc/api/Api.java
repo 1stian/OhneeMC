@@ -63,7 +63,6 @@ public class Api {
      *
      * @param player Who to set it for
      * @param name Home name
-     * @param location Location for home
      */
     public void setHome(Player player, String name, double x, double y, double z, float yaw, float pitch, String worldName) {
         UserData.loadPlayerFile(player);
