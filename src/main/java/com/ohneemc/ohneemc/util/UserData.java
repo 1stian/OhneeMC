@@ -338,13 +338,13 @@ public class UserData {
             if (enb != null){
                 if (enb){
                     for (Player onlinePlayers : Bukkit.getOnlinePlayers()){
-                        player.hidePlayer(OhneeMC.instance, onlinePlayers);
+                        onlinePlayers.hidePlayer(OhneeMC.instance, player);
                     }
                     player.sendMessage(ChatColor.GREEN + "You're now vanished.");
                     return true;
                 }else{
                     for (Player onlinePlayers : Bukkit.getOnlinePlayers()){
-                        player.showPlayer(OhneeMC.instance, onlinePlayers);
+                        onlinePlayers.showPlayer(OhneeMC.instance, player);
                     }
                     return true;
                 }
@@ -354,7 +354,7 @@ public class UserData {
             boolean vanished = users.getBoolean("vanished");
             if (!vanished){
                 for (Player onlinePlayers : Bukkit.getOnlinePlayers()){
-                    player.hidePlayer(OhneeMC.instance, onlinePlayers);
+                    onlinePlayers.hidePlayer(OhneeMC.instance, player);
                 }
                 player.sendMessage(ChatColor.GREEN + "You're now vanished.");
                 users.set("vanished", true);
@@ -362,7 +362,7 @@ public class UserData {
                 return true;
             }else{
                 for (Player onlinePlayers : Bukkit.getOnlinePlayers()){
-                    player.showPlayer(OhneeMC.instance, onlinePlayers);
+                    onlinePlayers.showPlayer(OhneeMC.instance, player);
                 }
                 player.sendMessage(ChatColor.GREEN + "You're no longer vanished.");
                 users.set("vanished", false);
