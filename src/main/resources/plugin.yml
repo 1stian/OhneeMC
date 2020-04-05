@@ -197,6 +197,7 @@ permissions:
       ohnee.tpcancel: true
       ohnee.tpaccept: true
       ohnee.tpdeny: true
+      ohnee.tpahere: true
   ohnee.use:
     default: false
     description: Basic usage
