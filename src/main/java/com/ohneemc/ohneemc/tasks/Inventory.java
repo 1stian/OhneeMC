@@ -20,11 +20,16 @@ public class Inventory implements Listener {
         InventoryView title = event.getView();
         String invTitle = title.getTitle();
         String[] split = invTitle.split(" ");
-        String playerName = split[1];
 
         if (open == null) {
             return;
         }
+
+        if (split.length < 1){
+            return;
+        }
+
+        String playerName = split[1];
 
         if (openInvNames.contains(ChatColor.DARK_GREEN + "Invsee " + ChatColor.GOLD + playerName)){
             if (invTitle.equalsIgnoreCase(ChatColor.DARK_GREEN + "Invsee " + ChatColor.GOLD + playerName)) {
