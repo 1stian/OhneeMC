@@ -44,8 +44,8 @@ public class UserData {
                 int maxPlayerHomes = Maps.getMaxHomes().get(playerGroup);
 
                 if (getHomeCount(player) == maxPlayerHomes){
-                    MessageHelper.sendMessage(player, ChatColor.GREEN + "You've reached your max allowed homes. Count: " + maxPlayerHomes);
-                    MessageHelper.sendMessage(player, ChatColor.GREEN + "Please delete one of your homes before setting a new one.");
+                    MessageHelper.sendMessage(player, "You've reached your max allowed homes. Count: " + maxPlayerHomes);
+                    MessageHelper.sendMessage(player, "Please delete one of your homes before setting a new one.");
                     return true;
                 }
 
@@ -66,7 +66,7 @@ public class UserData {
                 String homeName = name[0].toLowerCase();
 
                 if (users.contains("homes." + homeName)) {
-                    MessageHelper.sendMessage(player, ChatColor.GREEN + "You already have a home with that name..");
+                    MessageHelper.sendMessage(player, "You already have a home with that name..");
                     return true;
                 } else {
                     users.set("homes." + homeName + ".x", x);
@@ -77,7 +77,7 @@ public class UserData {
                     users.set("homes." + homeName + ".world", worldName);
 
                     if (savePlayerFile(player)) {
-                        MessageHelper.sendMessage(player, ChatColor.GREEN + "Home " + ChatColor.GOLD + homeName + ChatColor.GREEN + " has now been set!");
+                        MessageHelper.sendMessage(player, "Home " + ChatColor.GOLD + homeName + ChatColor.GREEN + " has now been set!");
                         return true;
                     } else {
                         MessageHelper.sendMessage(player, ChatColor.RED + "Couldn't save your home..");
@@ -88,7 +88,7 @@ public class UserData {
                 return false;
             }
         } else {
-            MessageHelper.sendMessage(player, ChatColor.GREEN + "You need to give a name for your new home!");
+            MessageHelper.sendMessage(player, "You need to give a name for your new home!");
             return true;
         }
     }
@@ -111,7 +111,7 @@ public class UserData {
                     sb.append(ChatColor.GREEN + ", ");
                 }
             } else {
-                MessageHelper.sendMessage(player, ChatColor.GREEN + "You've no homes yet. Use /sethome <name>");
+                MessageHelper.sendMessage(player, "You've no homes yet. Use /sethome <name>");
                 return true;
             }
 
@@ -134,7 +134,7 @@ public class UserData {
             String name = args[0].toLowerCase();
 
             if (!users.contains("homes." + name)) {
-                MessageHelper.sendMessage(player, ChatColor.GREEN + "You don't have a home named " + name);
+                MessageHelper.sendMessage(player, "You don't have a home named " + ChatColor.GOLD + name);
                 return true;
             } else {
                 String world = users.getString("homes." + name + ".world");
@@ -173,7 +173,7 @@ public class UserData {
             if (section != null) {
                 if (section.contains(name)) {
                     users.set("homes." + name, null);
-                    MessageHelper.sendMessage(player, ChatColor.GREEN + "Home " + ChatColor.GOLD + name + ChatColor.GREEN + " deleted.");
+                    MessageHelper.sendMessage(player, "Home " + ChatColor.GOLD + name + ChatColor.WHITE + " deleted.");
 
                     try {
                         users.save(OhneeMC.instance.getDataFolder() + "/userdata/" + player.getUniqueId() + ".yml");
@@ -183,7 +183,7 @@ public class UserData {
 
                     return true;
                 } else {
-                    MessageHelper.sendMessage(player, ChatColor.GREEN + "Couldn't find the home you want to delete.");
+                    MessageHelper.sendMessage(player, "Couldn't find the home you want to delete.");
                     return true;
                 }
             } else {
@@ -240,7 +240,7 @@ public class UserData {
     public static void setGamemode(Player player, GameMode gameMode) {
         users = loadPlayerFile(player);
         player.setGameMode(gameMode);
-        MessageHelper.sendMessage(player, ChatColor.GREEN + "Your gamemode changed to " + ChatColor.GOLD + gameMode.toString());
+        MessageHelper.sendMessage(player, "Your gamemode changed to " + ChatColor.GOLD + gameMode.toString());
         if (users == null){
             return;
         }
@@ -349,7 +349,7 @@ public class UserData {
                     for (Player onlinePlayers : Bukkit.getOnlinePlayers()){
                         onlinePlayers.hidePlayer(OhneeMC.instance, player);
                     }
-                    MessageHelper.sendMessage(player, ChatColor.GREEN + "You're now vanished.");
+                    MessageHelper.sendMessage(player, "You're now vanished.");
                     return true;
                 }else{
                     for (Player onlinePlayers : Bukkit.getOnlinePlayers()){
@@ -365,7 +365,7 @@ public class UserData {
                 for (Player onlinePlayers : Bukkit.getOnlinePlayers()){
                     onlinePlayers.hidePlayer(OhneeMC.instance, player);
                 }
-                MessageHelper.sendMessage(player, ChatColor.GREEN + "You're now vanished.");
+                MessageHelper.sendMessage(player, "You're now vanished.");
                 users.set("vanished", true);
                 savePlayerFile(player);
                 return true;
@@ -373,7 +373,7 @@ public class UserData {
                 for (Player onlinePlayers : Bukkit.getOnlinePlayers()){
                     onlinePlayers.showPlayer(OhneeMC.instance, player);
                 }
-                MessageHelper.sendMessage(player, ChatColor.GREEN + "You're no longer vanished.");
+                MessageHelper.sendMessage(player, "You're no longer vanished.");
                 users.set("vanished", false);
                 savePlayerFile(player);
                 return true;
