@@ -1,6 +1,7 @@
 package com.ohneemc.ohneemc.util;
 
 import com.ohneemc.ohneemc.OhneeMC;
+import com.ohneemc.ohneemc.helpers.MessageHelper;
 import org.bukkit.*;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -36,15 +37,15 @@ public class UserData {
 
                 if (Maps.getMaxHomes().get(playerGroup) == null){
                     OhneeMC.instance.getLogger().log(Level.SEVERE, "There are no home count defined for your group " + playerGroup + ", contact your administrator.");
-                    player.sendMessage("There are no home count defined for your group " + playerGroup + ", contact your administrator.");
+                    MessageHelper.sendMessage(player,ChatColor.RED + "There are no home count defined for your group " + playerGroup + ", contact your administrator.");
                     return false;
                 }
 
                 int maxPlayerHomes = Maps.getMaxHomes().get(playerGroup);
 
                 if (getHomeCount(player) == maxPlayerHomes){
-                    player.sendMessage(ChatColor.GREEN + "You've reached your max allowed homes. Count: " + maxPlayerHomes);
-                    player.sendMessage(ChatColor.GREEN + "Please delete one of your homes before setting a new one.");
+                    MessageHelper.sendMessage(player, ChatColor.GREEN + "You've reached your max allowed homes. Count: " + maxPlayerHomes);
+                    MessageHelper.sendMessage(player, ChatColor.GREEN + "Please delete one of your homes before setting a new one.");
                     return true;
                 }
 
@@ -65,7 +66,7 @@ public class UserData {
                 String homeName = name[0].toLowerCase();
 
                 if (users.contains("homes." + homeName)) {
-                    player.sendMessage(ChatColor.GREEN + "You already have a home with that name..");
+                    MessageHelper.sendMessage(player, ChatColor.GREEN + "You already have a home with that name..");
                     return true;
                 } else {
                     users.set("homes." + homeName + ".x", x);
@@ -76,10 +77,10 @@ public class UserData {
                     users.set("homes." + homeName + ".world", worldName);
 
                     if (savePlayerFile(player)) {
-                        player.sendMessage(ChatColor.GOLD + homeName + ChatColor.GREEN + " has now been set!");
+                        MessageHelper.sendMessage(player, ChatColor.GREEN + "Home " + ChatColor.GOLD + homeName + ChatColor.GREEN + " has now been set!");
                         return true;
                     } else {
-                        player.sendMessage(ChatColor.RED + "Couldn't save your home..");
+                        MessageHelper.sendMessage(player, ChatColor.RED + "Couldn't save your home..");
                         return true;
                     }
                 }
@@ -87,7 +88,7 @@ public class UserData {
                 return false;
             }
         } else {
-            player.sendMessage(ChatColor.GREEN + "You need to give a name for your new home!");
+            MessageHelper.sendMessage(player, ChatColor.GREEN + "You need to give a name for your new home!");
             return true;
         }
     }
@@ -110,11 +111,11 @@ public class UserData {
                     sb.append(ChatColor.GREEN + ", ");
                 }
             } else {
-                player.sendMessage(ChatColor.GREEN + "You've no homes yet. Use /sethome <name>");
+                MessageHelper.sendMessage(player, ChatColor.GREEN + "You've no homes yet. Use /sethome <name>");
                 return true;
             }
 
-            player.sendMessage(sb.toString());
+            MessageHelper.sendMessage(player, sb.toString());
             return true;
         } else {
             return false;
@@ -133,7 +134,7 @@ public class UserData {
             String name = args[0].toLowerCase();
 
             if (!users.contains("homes." + name)) {
-                player.sendMessage(ChatColor.GREEN + "You don't have a home named " + name);
+                MessageHelper.sendMessage(player, ChatColor.GREEN + "You don't have a home named " + name);
                 return true;
             } else {
                 String world = users.getString("homes." + name + ".world");
@@ -144,7 +145,7 @@ public class UserData {
                 float pitch = users.getInt("homes." + name + ".pitch");
 
                 if (world == null) {
-                    player.sendMessage(ChatColor.RED + "Something went wrong while executing home.");
+                    MessageHelper.sendMessage(player, ChatColor.RED + "Something went wrong while executing home.");
                     return false;
                 }
 
@@ -172,7 +173,7 @@ public class UserData {
             if (section != null) {
                 if (section.contains(name)) {
                     users.set("homes." + name, null);
-                    player.sendMessage(ChatColor.GOLD + name + ChatColor.GREEN + " deleted.");
+                    MessageHelper.sendMessage(player, ChatColor.GREEN + "Home " + ChatColor.GOLD + name + ChatColor.GREEN + " deleted.");
 
                     try {
                         users.save(OhneeMC.instance.getDataFolder() + "/userdata/" + player.getUniqueId() + ".yml");
@@ -182,7 +183,7 @@ public class UserData {
 
                     return true;
                 } else {
-                    player.sendMessage(ChatColor.GREEN + "Couldn't find the home you want to delete.");
+                    MessageHelper.sendMessage(player, ChatColor.GREEN + "Couldn't find the home you want to delete.");
                     return true;
                 }
             } else {
@@ -239,7 +240,7 @@ public class UserData {
     public static void setGamemode(Player player, GameMode gameMode) {
         users = loadPlayerFile(player);
         player.setGameMode(gameMode);
-        player.sendMessage(ChatColor.GREEN + "Your gamemode changed to " + ChatColor.GOLD + gameMode.toString());
+        MessageHelper.sendMessage(player, ChatColor.GREEN + "Your gamemode changed to " + ChatColor.GOLD + gameMode.toString());
         if (users == null){
             return;
         }
@@ -348,7 +349,7 @@ public class UserData {
                     for (Player onlinePlayers : Bukkit.getOnlinePlayers()){
                         onlinePlayers.hidePlayer(OhneeMC.instance, player);
                     }
-                    player.sendMessage(ChatColor.GREEN + "You're now vanished.");
+                    MessageHelper.sendMessage(player, ChatColor.GREEN + "You're now vanished.");
                     return true;
                 }else{
                     for (Player onlinePlayers : Bukkit.getOnlinePlayers()){
@@ -364,7 +365,7 @@ public class UserData {
                 for (Player onlinePlayers : Bukkit.getOnlinePlayers()){
                     onlinePlayers.hidePlayer(OhneeMC.instance, player);
                 }
-                player.sendMessage(ChatColor.GREEN + "You're now vanished.");
+                MessageHelper.sendMessage(player, ChatColor.GREEN + "You're now vanished.");
                 users.set("vanished", true);
                 savePlayerFile(player);
                 return true;
@@ -372,7 +373,7 @@ public class UserData {
                 for (Player onlinePlayers : Bukkit.getOnlinePlayers()){
                     onlinePlayers.showPlayer(OhneeMC.instance, player);
                 }
-                player.sendMessage(ChatColor.GREEN + "You're no longer vanished.");
+                MessageHelper.sendMessage(player, ChatColor.GREEN + "You're no longer vanished.");
                 users.set("vanished", false);
                 savePlayerFile(player);
                 return true;
