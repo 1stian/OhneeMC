@@ -1,7 +1,6 @@
 package com.ohneemc;
 
 import com.ohneemc.api.Api;
-import com.ohneemc.ohneemc.tasks.*;
 import com.ohneemc.util.Maps;
 import com.ohneemc.util.Placeholder;
 import com.ohneemc.util.Config;
@@ -124,7 +123,7 @@ public class OhneeMC extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new JoinQuit(), this);
         getServer().getPluginManager().registerEvents(new Afk(), this);
         getServer().getPluginManager().registerEvents(new Death(), this);
-        getServer().getPluginManager().registerEvents(new Inventory(), this);
+        //getServer().getPluginManager().registerEvents(new Inventory(), this);
         getServer().getPluginManager().registerEvents(new WorldChange(), this);
     }
 
