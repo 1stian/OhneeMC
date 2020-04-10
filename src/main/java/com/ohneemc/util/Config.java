@@ -30,7 +30,10 @@ public class Config {
      */
     public static boolean getBoolean(String location){
         try {return OhneeMC.instance.getConfig().getBoolean(location);}
-        catch (Exception e) {error(e); return false;}
+        catch (Exception e) {
+            error(e);
+            return false;
+        }
     }
 
     /**
@@ -41,7 +44,10 @@ public class Config {
      */
     public static int getInteger(String location){
         try {return OhneeMC.instance.getConfig().getInt(location);}
-        catch (Exception e) {error(e); return 0;}
+        catch (Exception e) {
+            error(e);
+            return 0;
+        }
     }
 
     /**
@@ -52,7 +58,10 @@ public class Config {
      */
     public static String getString(String location) {
         try {return OhneeMC.instance.getConfig().getString(location);}
-        catch (Exception e) {error(e); return "";}
+        catch (Exception e) {
+            error(e);
+            return "";
+        }
     }
 
     /**
@@ -63,7 +72,10 @@ public class Config {
      */
     public static double getDouble(String location) {
         try {return OhneeMC.instance.getConfig().getDouble(location);}
-        catch (Exception e) {error(e); return 0.0;}
+        catch (Exception e) {
+            error(e);
+            return 0.0;
+        }
     }
 
     /**
@@ -74,7 +86,10 @@ public class Config {
      */
     public static List<String> getList(String location){
         try {return OhneeMC.instance.getConfig().getStringList(location);}
-        catch (Exception e) {error(e); return new ArrayList<>();}
+        catch (Exception e) {
+            error(e);
+            return new ArrayList<>();
+        }
     }
 
     /**
@@ -85,7 +100,10 @@ public class Config {
      */
     public static ConfigurationSection getSection(String section){
         try {return OhneeMC.instance.getConfig().getConfigurationSection(section);}
-        catch (Exception e) {error(e); return null;}
+        catch (Exception e) {
+            error(e);
+            return null;
+        }
     }
 
     /**
@@ -99,6 +117,7 @@ public class Config {
             Maps.loadGroups();
             return true;
         }catch (Exception e) {
+            error(e);
             return false;
         }
     }
