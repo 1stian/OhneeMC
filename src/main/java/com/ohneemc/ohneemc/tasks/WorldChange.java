@@ -5,12 +5,13 @@ import com.ohneemc.ohneemc.util.UserData;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 
 public class WorldChange implements Listener {
 
-    @EventHandler
+    @EventHandler (priority = EventPriority.HIGHEST)
     public void worldChange(PlayerChangedWorldEvent event) {
         Player player = event.getPlayer();
 
