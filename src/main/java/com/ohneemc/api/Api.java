@@ -14,7 +14,7 @@ public class Api {
      * @param player Gets player afk status.
      * @return boolean
      */
-    public static boolean getAfk(Player player){
+    public boolean getAfk(Player player){
         return UserData.getAfk(player);
     }
 
@@ -22,7 +22,7 @@ public class Api {
      * Get plugin name
      * @return String
      */
-    public static String getName(){
+    public String getName(){
         return OhneeMC.instance.getDescription().getName();
     }
 
@@ -30,7 +30,7 @@ public class Api {
      *  Returns plugin authors.
      * @return StringList
      */
-    public static List<String> getAuthor(){
+    public List<String> getAuthor(){
         return OhneeMC.instance.getDescription().getAuthors();
     }
 
@@ -38,7 +38,7 @@ public class Api {
      * Returns plugin version.
      * @return String
      */
-    public static String getVersion(){
+    public String getVersion(){
         return OhneeMC.instance.getDescription().getVersion();
     }
 
@@ -47,7 +47,7 @@ public class Api {
      * @param player Check for who.
      * @return True if imported otherwise false.
      */
-    public static boolean isImported(Player player){
+    public boolean isImported(Player player){
         return UserData.getImported(player);
     }
 
@@ -55,7 +55,7 @@ public class Api {
      *
      * @param player Set imported for player.
      */
-    public static void setImported(Player player){
+    public void setImported(Player player){
         UserData.setImported(player, true);
     }
 
@@ -64,7 +64,7 @@ public class Api {
      * @param player Who to set it for
      * @param name Home name
      */
-    public static void setHome(Player player, String name, double x, double y, double z, float yaw, float pitch, String worldName) {
+    public void setHome(Player player, String name, double x, double y, double z, float yaw, float pitch, String worldName) {
         UserData.loadPlayerFile(player);
         UserData.users.set("homes." + name + ".x", x);
         UserData.users.set("homes." + name + ".y", y);
