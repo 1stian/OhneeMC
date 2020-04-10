@@ -18,7 +18,7 @@ public class OhneeMC extends JavaPlugin {
     private static final Logger log = Logger.getLogger("Minecraft");
 
     public static OhneeMC instance;
-    public static com.ohneemc.api.Api Api = new Api();
+    public com.ohneemc.api.Api api = new Api();
     public static boolean debug = Config.getBoolean("debug");
 
     //Vault
