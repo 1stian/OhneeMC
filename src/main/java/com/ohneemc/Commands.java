@@ -101,14 +101,13 @@ public class Commands implements CommandExecutor {
                     float speedFloat = 0.1f;
 
                     switch (speed) {
-                        case 1:
-                            speedFloat = +0.1f;
+                        case 1: speedFloat = +0.1f;
                             break;
-                        case 2:
-                            speedFloat = +0.2f;
+                        case 2: speedFloat = +0.2f;
                             break;
-                        case 3:
-                            speedFloat = +0.3f;
+                        case 3: speedFloat = +0.3f;
+                            break;
+                        default: speedFloat = 0.1f;
                             break;
                     }
 
