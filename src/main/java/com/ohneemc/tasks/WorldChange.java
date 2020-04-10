@@ -1,7 +1,7 @@
-package com.ohneemc.ohneemc.tasks;
+package com.ohneemc.tasks;
 
-import com.ohneemc.ohneemc.helpers.MessageHelper;
-import com.ohneemc.ohneemc.util.UserData;
+import com.ohneemc.helpers.MessageHelper;
+import com.ohneemc.util.UserData;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

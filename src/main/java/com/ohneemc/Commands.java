@@ -1,15 +1,15 @@
-package com.ohneemc.ohneemc;
+package com.ohneemc;
 
-import com.ohneemc.ohneemc.commands.General;
-import com.ohneemc.ohneemc.helpers.InventoryCreator;
-import com.ohneemc.ohneemc.helpers.MessageHelper;
-import com.ohneemc.ohneemc.helpers.Teleport;
-import com.ohneemc.ohneemc.commands.Admin;
-import com.ohneemc.ohneemc.commands.Tp;
-import com.ohneemc.ohneemc.util.Maps;
-import com.ohneemc.ohneemc.util.UserData;
-import com.ohneemc.ohneemc.util.WarpData;
-import com.ohneemc.ohneemc.util.WorldData;
+import com.ohneemc.commands.General;
+import com.ohneemc.helpers.MessageHelper;
+import com.ohneemc.helpers.InventoryCreator;
+import com.ohneemc.helpers.Teleport;
+import com.ohneemc.commands.Admin;
+import com.ohneemc.commands.Tp;
+import com.ohneemc.util.Maps;
+import com.ohneemc.util.UserData;
+import com.ohneemc.util.WarpData;
+import com.ohneemc.util.WorldData;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;

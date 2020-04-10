@@ -1,7 +1,7 @@
-package com.ohneemc.ohneemc.util;
+package com.ohneemc.util;
 
-import com.ohneemc.ohneemc.OhneeMC;
-import com.ohneemc.ohneemc.helpers.MessageHelper;
+import com.ohneemc.helpers.MessageHelper;
+import com.ohneemc.OhneeMC;
 import org.bukkit.*;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;

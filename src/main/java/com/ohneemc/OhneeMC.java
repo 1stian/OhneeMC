@@ -1,10 +1,11 @@
-package com.ohneemc.ohneemc;
+package com.ohneemc;
 
-import com.ohneemc.ohneemc.api.Api;
+import com.ohneemc.api.Api;
 import com.ohneemc.ohneemc.tasks.*;
-import com.ohneemc.ohneemc.util.Maps;
-import com.ohneemc.ohneemc.util.Placeholder;
-import com.ohneemc.ohneemc.util.Config;
+import com.ohneemc.util.Maps;
+import com.ohneemc.util.Placeholder;
+import com.ohneemc.util.Config;
+import com.ohneemc.tasks.*;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
@@ -18,7 +19,7 @@ public class OhneeMC extends JavaPlugin {
     private static final Logger log = Logger.getLogger("Minecraft");
 
     public static OhneeMC instance;
-    public static com.ohneemc.ohneemc.api.Api Api = new Api();
+    public static com.ohneemc.api.Api Api = new Api();
     public static boolean debug = Config.getBoolean("debug");
 
     //Vault
@@ -123,7 +124,7 @@ public class OhneeMC extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new JoinQuit(), this);
         getServer().getPluginManager().registerEvents(new Afk(), this);
         getServer().getPluginManager().registerEvents(new Death(), this);
-        //getServer().getPluginManager().registerEvents(new Inventory(), this);
+        getServer().getPluginManager().registerEvents(new Inventory(), this);
         getServer().getPluginManager().registerEvents(new WorldChange(), this);
     }
 

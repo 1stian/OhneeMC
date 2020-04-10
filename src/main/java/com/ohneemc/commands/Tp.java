@@ -1,7 +1,7 @@
-package com.ohneemc.ohneemc.commands;
+package com.ohneemc.commands;
 
-import com.ohneemc.ohneemc.helpers.Teleport;
-import com.ohneemc.ohneemc.util.Maps;
+import com.ohneemc.helpers.Teleport;
+import com.ohneemc.util.Maps;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

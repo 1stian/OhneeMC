@@ -1,4 +1,4 @@
-package com.ohneemc.ohneemc.helpers;
+package com.ohneemc.helpers;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

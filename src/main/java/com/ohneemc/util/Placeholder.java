@@ -1,6 +1,6 @@
-package com.ohneemc.ohneemc.util;
+package com.ohneemc.util;
 
-import com.ohneemc.ohneemc.OhneeMC;
+import com.ohneemc.OhneeMC;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.entity.Player;
 

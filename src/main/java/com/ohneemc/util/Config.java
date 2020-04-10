@@ -1,6 +1,6 @@
-package com.ohneemc.ohneemc.util;
+package com.ohneemc.util;
 
-import com.ohneemc.ohneemc.OhneeMC;
+import com.ohneemc.OhneeMC;
 import org.bukkit.configuration.ConfigurationSection;
 
 import java.util.ArrayList;

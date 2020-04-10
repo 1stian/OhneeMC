@@ -1,6 +1,6 @@
-package com.ohneemc.ohneemc.commands;
+package com.ohneemc.commands;
 
-import com.ohneemc.ohneemc.helpers.MessageHelper;
+import com.ohneemc.helpers.MessageHelper;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

@@ -1,7 +1,7 @@
-package com.ohneemc.ohneemc.api;
+package com.ohneemc.api;
 
-import com.ohneemc.ohneemc.OhneeMC;
-import com.ohneemc.ohneemc.util.UserData;
+import com.ohneemc.OhneeMC;
+import com.ohneemc.util.UserData;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 

@@ -1,4 +1,4 @@
-package com.ohneemc.ohneemc.helpers;
+package com.ohneemc.helpers;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -14,7 +14,7 @@ public class InventoryCreator {
      * @return true if successful. Otherwise false.
      */
     public static Inventory createInvseeInventory(Inventory playerInventory, String playerName) {
-        com.ohneemc.ohneemc.tasks.Inventory.openInvNames.add(ChatColor.DARK_GREEN + "Invsee "
+        com.ohneemc.tasks.Inventory.openInvNames.add(ChatColor.DARK_GREEN + "Invsee "
                 + ChatColor.GOLD + playerName);
         Inventory inv = Bukkit.createInventory(null, 45, ChatColor.DARK_GREEN + "Invsee "
                 + ChatColor.GOLD + playerName);

@@ -1,6 +1,6 @@
-package com.ohneemc.ohneemc.util;
+package com.ohneemc.util;
 
-import com.ohneemc.ohneemc.OhneeMC;
+import com.ohneemc.OhneeMC;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;

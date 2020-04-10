@@ -1,4 +1,4 @@
-package com.ohneemc.ohneemc.tasks;
+package com.ohneemc.tasks;
 
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;

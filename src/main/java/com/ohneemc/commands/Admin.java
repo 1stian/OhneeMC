@@ -1,9 +1,9 @@
-package com.ohneemc.ohneemc.commands;
+package com.ohneemc.commands;
 
-import com.ohneemc.ohneemc.OhneeMC;
-import com.ohneemc.ohneemc.helpers.MessageHelper;
-import com.ohneemc.ohneemc.util.Config;
-import com.ohneemc.ohneemc.util.UserData;
+import com.ohneemc.OhneeMC;
+import com.ohneemc.helpers.MessageHelper;
+import com.ohneemc.util.Config;
+import com.ohneemc.util.UserData;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
