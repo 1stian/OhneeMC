@@ -20,15 +20,6 @@ public class Maps {
     private static HashMap<UUID, Location> getLastPlayerLocation() { return lastPlayerLocation; }
 
     /**
-     * <p>updateLastPlayerLocation.</p>
-     *
-     * @param player a {@link org.bukkit.entity.Player} object.
-     */
-    public static void updateLastPlayerLocation(Player player) {
-        lastPlayerLocation.put(player.getUniqueId(), player.getLocation());
-    }
-
-    /**
      * <p>Getter for the field <code>lastPlayerLocation</code>.</p>
      *
      * @param player a {@link org.bukkit.entity.Player} object.
@@ -38,6 +29,15 @@ public class Maps {
         Location last = getLastPlayerLocation().get(player.getUniqueId());
         lastPlayerLocation.remove(player.getUniqueId());
         return last;
+    }
+
+    /**
+     * <p>updateLastPlayerLocation.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     */
+    public static void updateLastPlayerLocation(Player player) {
+        lastPlayerLocation.put(player.getUniqueId(), player.getLocation());
     }
     //</editor-fold>
 
