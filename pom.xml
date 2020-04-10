@@ -6,7 +6,7 @@
 
     <groupId>com.ohneemc</groupId>
     <artifactId>OhneeMC</artifactId>
-    <version>1.0.${BUILD_NUMBER}</version>
+    <version>1.0.4</version>
 
     <repositories>
         <repository>
@@ -56,6 +56,7 @@
     </dependencies>
 
     <build>
+        <finalName>OhneeMC-{full.version}</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory> <!-- (your resources folder location) -->
