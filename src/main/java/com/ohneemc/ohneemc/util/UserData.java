@@ -223,12 +223,16 @@ public class UserData {
     //GameMode
 
     /**
-     * Is player afk or not
+     * Get player gamemode
      *
      * @param player Returns their gamemode
      */
     public static GameMode getGamemode(Player player) {
-        return GameMode.valueOf(Config.getString("gamemode"));
+        users = loadPlayerFile(player);
+        if(users == null){
+            return null;
+        }
+        return GameMode.valueOf(users.getString("gamemode"));
     }
 
     /**

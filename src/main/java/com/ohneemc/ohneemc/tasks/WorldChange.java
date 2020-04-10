@@ -1,5 +1,6 @@
 package com.ohneemc.ohneemc.tasks;
 
+import com.ohneemc.ohneemc.helpers.MessageHelper;
 import com.ohneemc.ohneemc.util.UserData;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
@@ -14,6 +15,11 @@ public class WorldChange implements Listener {
         Player player = event.getPlayer();
 
         GameMode gameMode = UserData.getGamemode(player);
+
+        if (gameMode == null){
+            MessageHelper.sendMessage(player, "Couldn't determine what gamemode you were in.. If this repeats itself, contact your server admin.");
+        }
+
         if (gameMode == GameMode.CREATIVE){
             player.setGameMode(GameMode.CREATIVE);
             UserData.setFly(player, true);
