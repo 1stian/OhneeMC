@@ -11,11 +11,24 @@ import org.bukkit.entity.Player;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * <p>WorldData class.</p>
+ *
+ * @author stian
+ * @version $Id: $Id
+ */
 public class WorldData  {
 
+    /** Constant <code>world</code> */
     public static FileConfiguration world;
     private static File worldFile;
 
+    /**
+     * <p>setSpawn.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @return a boolean.
+     */
     public static boolean setSpawn(Player player){
         world = loadWorldFile();
         if (world != null){
@@ -44,6 +57,12 @@ public class WorldData  {
         return false;
     }
 
+    /**
+     * <p>getSpawn.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @return a {@link org.bukkit.Location} object.
+     */
     public static Location getSpawn(Player player){
         world = loadWorldFile();
         if (world != null){
@@ -67,10 +86,21 @@ public class WorldData  {
     }
 
     //<editor-fold desc="File section">
+    /**
+     * <p>getPlayerLocation.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @return a {@link org.bukkit.Location} object.
+     */
     public static Location getPlayerLocation(Player player) {
         return player.getLocation();
     }
 
+    /**
+     * <p>loadWorldFile.</p>
+     *
+     * @return a {@link org.bukkit.configuration.file.FileConfiguration} object.
+     */
     public static FileConfiguration loadWorldFile() {
         String path = OhneeMC.instance.getDataFolder() + "/worlds.yml";
         worldFile = new File(path);
@@ -86,6 +116,11 @@ public class WorldData  {
         return null;
     }
 
+    /**
+     * <p>saveWorldFile.</p>
+     *
+     * @return a boolean.
+     */
     public static boolean saveWorldFile() {
         String path = OhneeMC.instance.getDataFolder() + "/worlds.yml";
         worldFile = new File(path);

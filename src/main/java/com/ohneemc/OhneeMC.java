@@ -14,22 +14,39 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
 
+/**
+ * <p>OhneeMC class.</p>
+ *
+ * @author stian
+ * @version $Id: $Id
+ */
 public class OhneeMC extends JavaPlugin {
     private static final Logger log = Logger.getLogger("Minecraft");
 
+    /** Constant <code>instance</code> */
     public static OhneeMC instance;
     public com.ohneemc.api.Api api = new Api();
+    /** Constant <code>debug=Config.getBoolean("debug")</code> */
     public static boolean debug = Config.getBoolean("debug");
 
     //Vault
+    /** Constant <code>econ</code> */
     public static Economy econ = null;
+    /** Constant <code>perms</code> */
     public static Permission perms = null;
+    /** Constant <code>chat</code> */
     public static Chat chat = null;
 
+    /**
+     * <p>onDisable.</p>
+     */
     public void onDisable(){
 
     }
 
+    /**
+     * <p>onEnable.</p>
+     */
     public void onEnable(){
         instance = this;
 

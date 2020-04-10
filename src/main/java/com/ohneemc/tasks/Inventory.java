@@ -10,10 +10,22 @@ import org.bukkit.inventory.InventoryView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * <p>Inventory class.</p>
+ *
+ * @author stian
+ * @version $Id: $Id
+ */
 public class Inventory implements Listener {
 
+    /** Constant <code>openInvNames</code> */
     public static List<String> openInvNames = new ArrayList<>();
 
+    /**
+     * <p>invListener.</p>
+     *
+     * @param event a {@link org.bukkit.event.inventory.InventoryClickEvent} object.
+     */
     @EventHandler
     public static void invListener(InventoryClickEvent event){
         org.bukkit.inventory.Inventory open = event.getClickedInventory();
@@ -38,6 +50,11 @@ public class Inventory implements Listener {
         }
     }
 
+    /**
+     * <p>invClose.</p>
+     *
+     * @param event a {@link org.bukkit.event.inventory.InventoryCloseEvent} object.
+     */
     @EventHandler
     public static void invClose(InventoryCloseEvent event) {
         org.bukkit.inventory.Inventory close = event.getInventory();

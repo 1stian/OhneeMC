@@ -11,6 +11,12 @@ import org.bukkit.entity.Player;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * <p>WarpData class.</p>
+ *
+ * @author stian
+ * @version $Id: $Id
+ */
 public class WarpData {
 
     private static FileConfiguration warps;
@@ -18,6 +24,13 @@ public class WarpData {
 
     //<editor-fold desc="Warp Section">
     //Warp Section
+    /**
+     * <p>setWarp.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @param args an array of {@link java.lang.String} objects.
+     * @return a boolean.
+     */
     public static boolean setWarp(Player player, String[] args) {
         if (args != null) {
             String name = args[0].toLowerCase();
@@ -60,6 +73,12 @@ public class WarpData {
         }
     }
 
+    /**
+     * <p>Getter for the field <code>warps</code>.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @return a boolean.
+     */
     public static boolean getWarps(Player player) {
         warps = loadWarpFile();
         if (warps != null) {
@@ -78,6 +97,13 @@ public class WarpData {
         }
     }
 
+    /**
+     * <p>warp.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @param args an array of {@link java.lang.String} objects.
+     * @return a boolean.
+     */
     public static boolean warp(Player player, String[] args) {
         warps = loadWarpFile();
         if (warps != null) {
@@ -103,6 +129,13 @@ public class WarpData {
         }
     }
 
+    /**
+     * <p>delWarp.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @param args an array of {@link java.lang.String} objects.
+     * @return a boolean.
+     */
     public static boolean delWarp(Player player, String[] args) {
         warps = loadWarpFile();
         if (warps != null) {
@@ -130,10 +163,21 @@ public class WarpData {
     //</editor-fold>
 
     //<editor-fold desc="File section">
+    /**
+     * <p>getPlayerLocation.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @return a {@link org.bukkit.Location} object.
+     */
     public static Location getPlayerLocation(Player player) {
         return player.getLocation();
     }
 
+    /**
+     * <p>loadWarpFile.</p>
+     *
+     * @return a {@link org.bukkit.configuration.file.FileConfiguration} object.
+     */
     public static FileConfiguration loadWarpFile() {
         String path = OhneeMC.instance.getDataFolder() + "/warps.yml";
         warpFile = new File(path);
@@ -149,6 +193,11 @@ public class WarpData {
         return null;
     }
 
+    /**
+     * <p>saveWarpFile.</p>
+     *
+     * @return a boolean.
+     */
     public static boolean saveWarpFile() {
         String path = OhneeMC.instance.getDataFolder() + "/warps.yml";
         warpFile = new File(path);

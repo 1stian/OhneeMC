@@ -8,9 +8,16 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
 
+/**
+ * <p>General class.</p>
+ *
+ * @author stian
+ * @version $Id: $Id
+ */
 public class General {
 
     /**
+     * <p>setGlowing.</p>
      *
      * @param player who's sending the command.
      * @param args name of the target player.

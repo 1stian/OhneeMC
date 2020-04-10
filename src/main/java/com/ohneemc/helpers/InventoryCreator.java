@@ -5,9 +5,16 @@ import org.bukkit.ChatColor;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+/**
+ * <p>InventoryCreator class.</p>
+ *
+ * @author stian
+ * @version $Id: $Id
+ */
 public class InventoryCreator {
 
     /**
+     * <p>createInvseeInventory.</p>
      *
      * @param playerInventory Inventory of the player to look at.
      * @param playerName The name of the player.

@@ -21,8 +21,19 @@ import java.util.List;
 
 import static com.ohneemc.util.UserData.users;
 
+/**
+ * <p>JoinQuit class.</p>
+ *
+ * @author stian
+ * @version $Id: $Id
+ */
 public class JoinQuit implements Listener {
 
+    /**
+     * <p>onJoin.</p>
+     *
+     * @param event a {@link org.bukkit.event.player.PlayerJoinEvent} object.
+     */
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
         //Putting players in their maps
@@ -137,6 +148,11 @@ public class JoinQuit implements Listener {
         UserData.savePlayerFile(player);
     }
 
+    /**
+     * <p>onQuit.</p>
+     *
+     * @param event a {@link org.bukkit.event.player.PlayerQuitEvent} object.
+     */
     @EventHandler
     public void onQuit(PlayerQuitEvent event){
         //Removing players from their maps.

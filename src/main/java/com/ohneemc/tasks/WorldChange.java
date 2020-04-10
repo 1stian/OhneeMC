@@ -9,8 +9,19 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 
+/**
+ * <p>WorldChange class.</p>
+ *
+ * @author stian
+ * @version $Id: $Id
+ */
 public class WorldChange implements Listener {
 
+    /**
+     * <p>worldChange.</p>
+     *
+     * @param event a {@link org.bukkit.event.player.PlayerChangedWorldEvent} object.
+     */
     @EventHandler (priority = EventPriority.HIGHEST)
     public void worldChange(PlayerChangedWorldEvent event) {
         Player player = event.getPlayer();

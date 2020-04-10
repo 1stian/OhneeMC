@@ -7,9 +7,16 @@ import org.bukkit.entity.Player;
 
 import java.util.List;
 
+/**
+ * <p>Api class.</p>
+ *
+ * @author stian
+ * @version $Id: $Id
+ */
 public class Api {
 
     /**
+     * <p>getAfk.</p>
      *
      * @param player Gets player afk status.
      * @return boolean
@@ -20,6 +27,7 @@ public class Api {
 
     /**
      * Get plugin name
+     *
      * @return String
      */
     public String getName(){
@@ -28,6 +36,7 @@ public class Api {
 
     /**
      *  Returns plugin authors.
+     *
      * @return StringList
      */
     public List<String> getAuthor(){
@@ -36,6 +45,7 @@ public class Api {
 
     /**
      * Returns plugin version.
+     *
      * @return String
      */
     public String getVersion(){
@@ -43,6 +53,7 @@ public class Api {
     }
 
     /**
+     * <p>isImported.</p>
      *
      * @param player Check for who.
      * @return True if imported otherwise false.
@@ -52,6 +63,7 @@ public class Api {
     }
 
     /**
+     * <p>setImported.</p>
      *
      * @param player Set imported for player.
      */
@@ -60,9 +72,16 @@ public class Api {
     }
 
     /**
+     * <p>setHome.</p>
      *
      * @param player Who to set it for
      * @param name Home name
+     * @param x a double.
+     * @param y a double.
+     * @param z a double.
+     * @param yaw a float.
+     * @param pitch a float.
+     * @param worldName a {@link java.lang.String} object.
      */
     public void setHome(Player player, String name, double x, double y, double z, float yaw, float pitch, String worldName) {
         UserData.loadPlayerFile(player);

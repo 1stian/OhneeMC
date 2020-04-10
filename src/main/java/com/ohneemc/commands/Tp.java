@@ -6,9 +6,22 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
+/**
+ * <p>Tp class.</p>
+ *
+ * @author stian
+ * @version $Id: $Id
+ */
 public class Tp {
 
     //Teleport to a player or someone to a player.
+    /**
+     * <p>doTp.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @param args an array of {@link java.lang.String} objects.
+     * @return a boolean.
+     */
     public static boolean doTp(Player player, String[] args) {
         Player target;
 
@@ -36,6 +49,13 @@ public class Tp {
     }
 
     //Teleports a player to you.
+    /**
+     * <p>doTpHere.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @param args an array of {@link java.lang.String} objects.
+     * @return a boolean.
+     */
     public static boolean doTpHere(Player player, String[] args){
         Player target;
 
@@ -49,6 +69,13 @@ public class Tp {
 
     /*Sends a request to another player
      * to be teleported to sender.*/
+    /**
+     * <p>doTpa.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @param args an array of {@link java.lang.String} objects.
+     * @return a boolean.
+     */
     public static boolean doTpa(Player player, String[] args){
         Player target;
 
@@ -75,6 +102,13 @@ public class Tp {
 
     /*Sends a request to another player
      * to be teleported to sender.*/
+    /**
+     * <p>doTpahere.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @param args an array of {@link java.lang.String} objects.
+     * @return a boolean.
+     */
     public static boolean doTpahere(Player player, String[] args){
         Player target;
 
@@ -99,6 +133,12 @@ public class Tp {
         return false;
     }
 
+    /**
+     * <p>doAccept.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @return a boolean.
+     */
     public static boolean doAccept(Player player){
         if(Maps.getTpRequestTarget().containsKey(player.getUniqueId())){
             Player target = Bukkit.getPlayer(Maps.getTpRequestTarget().get(player.getUniqueId()));
@@ -122,6 +162,12 @@ public class Tp {
         return false;
     }
 
+    /**
+     * <p>doDeny.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @return a boolean.
+     */
     public static boolean doDeny(Player player){
         if (Maps.getTpRequestTarget().containsKey(player.getUniqueId())){
             Player target = Bukkit.getPlayer(Maps.getTpRequestTarget().get(player.getUniqueId()));
@@ -138,6 +184,12 @@ public class Tp {
         return false;
     }
 
+    /**
+     * <p>doCancel.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @return a boolean.
+     */
     public static boolean doCancel(Player player){
         if (Maps.getTpRequestTarget().containsKey(player.getUniqueId())){
             Player target = Bukkit.getPlayer(Maps.getTpRequestTarget().get(player.getUniqueId()));

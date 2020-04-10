@@ -19,7 +19,14 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+/**
+ * <p>Commands class.</p>
+ *
+ * @author stian
+ * @version $Id: $Id
+ */
 public class Commands implements CommandExecutor {
+    /** {@inheritDoc} */
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = Bukkit.getPlayer(sender.getName());

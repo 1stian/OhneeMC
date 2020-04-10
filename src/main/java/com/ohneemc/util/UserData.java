@@ -14,8 +14,15 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 
+/**
+ * <p>UserData class.</p>
+ *
+ * @author stian
+ * @version $Id: $Id
+ */
 public class UserData {
 
+    /** Constant <code>users</code> */
     public static FileConfiguration users;
     private static File userFile;
 
@@ -26,6 +33,7 @@ public class UserData {
      *
      * @param player Player who sets their home.
      * @param name   Home name
+     * @return a boolean.
      */
     public static boolean setHome(Player player, String[] name) {
         if (name.length == 1) {
@@ -97,6 +105,7 @@ public class UserData {
      * Getting users
      *
      * @param player prints player users.
+     * @return a boolean.
      */
     public static boolean getHomes(Player player) {
         users = loadPlayerFile(player);
@@ -127,6 +136,7 @@ public class UserData {
      *
      * @param player Player to teleport.
      * @param args   Home name
+     * @return a boolean.
      */
     public static boolean tpHome(Player player, String[] args) {
         users = loadPlayerFile(player);
@@ -163,6 +173,7 @@ public class UserData {
      *
      * @param player Player who wants to delete their home.
      * @param args   Home name
+     * @return a boolean.
      */
     public static boolean delHome(Player player, String[] args) {
         users = loadPlayerFile(player);
@@ -198,6 +209,7 @@ public class UserData {
      * Is player afk or not
      *
      * @param player return players home count.
+     * @return a {@link java.lang.Integer} object.
      */
     public static Integer getHomeCount(Player player) {
         users = loadPlayerFile(player);
@@ -226,6 +238,7 @@ public class UserData {
      * Get player gamemode
      *
      * @param player Returns their gamemode
+     * @return a {@link org.bukkit.GameMode} object.
      */
     public static GameMode getGamemode(Player player) {
         users = loadPlayerFile(player);
@@ -253,6 +266,12 @@ public class UserData {
     }
     //</editor-fold>
 
+    /**
+     * <p>setGlow.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @param glow a boolean.
+     */
     public static void setGlow(Player player, boolean glow) { player.setGlowing(glow); }
 
     //<editor-fold desc="Afk">
@@ -261,6 +280,7 @@ public class UserData {
      * Is player afk or not
      *
      * @param player returns true or false if player is afk or not
+     * @return a boolean.
      */
     public static boolean getAfk(Player player) {
         return Maps.isAfk.get(player.getUniqueId());
@@ -280,7 +300,9 @@ public class UserData {
     //<editor-fold desc="Fly">
     /**
      * Is player afk or not
+     *
      *@param player Gets if player have fly enabled or not.
+     * @return a boolean.
      */
     public static boolean getFly(Player player) {
         users = loadPlayerFile(player);
@@ -308,6 +330,7 @@ public class UserData {
     }
 
     /**
+     * <p>setFlySpeed.</p>
      *
      * @param player who to set it for.
      * @param speed float speed. -1 to +1
@@ -323,6 +346,7 @@ public class UserData {
     }
 
     /**
+     * <p>getFlySpeed.</p>
      *
      * @param player who
      * @return float flyspeed
@@ -338,6 +362,7 @@ public class UserData {
 
     //<editor-fold desc="Admin section">
     /**
+     * <p>setVanish.</p>
      *
      * @param player Player to vanish
      * @param enb Set vanish and not toggle
@@ -387,6 +412,7 @@ public class UserData {
     }
 
     /**
+     * <p>isVanished.</p>
      *
      * @param player Player to check
      * @return true if vanished, false if not.
@@ -399,10 +425,22 @@ public class UserData {
         return false;
     }
 
+    /**
+     * <p>getPlayerInventory.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @return a {@link org.bukkit.inventory.Inventory} object.
+     */
     public static Inventory getPlayerInventory(Player player){
         return player.getInventory();
     }
 
+    /**
+     * <p>getImported.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @return a boolean.
+     */
     public static boolean getImported(Player player) {
         users = loadPlayerFile(player);
         if (users != null) {
@@ -411,6 +449,12 @@ public class UserData {
         return false;
     }
 
+    /**
+     * <p>setImported.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @param set a {@link java.lang.Boolean} object.
+     */
     public static void setImported(Player player, Boolean set) {
         users = loadPlayerFile(player);
         if (users != null) {
@@ -420,6 +464,12 @@ public class UserData {
     }
     //</editor-fold>
 
+    /**
+     * <p>getPlaytime.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @return a {@link java.lang.String} object.
+     */
     public static String getPlaytime(Player player){
         users = loadPlayerFile(player);
         if (users != null){
@@ -433,6 +483,12 @@ public class UserData {
         return "";
     }
 
+    /**
+     * <p>getGroup.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @return a {@link java.lang.String} object.
+     */
     public static String getGroup(Player player){
         if (player == null){
             return null;
@@ -442,10 +498,22 @@ public class UserData {
     }
 
     //<editor-fold desc="File section">
+    /**
+     * <p>getPlayerLocation.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @return a {@link org.bukkit.Location} object.
+     */
     public static Location getPlayerLocation(Player player) {
         return player.getLocation();
     }
 
+    /**
+     * <p>loadPlayerFile.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @return a {@link org.bukkit.configuration.file.FileConfiguration} object.
+     */
     public static FileConfiguration loadPlayerFile(Player player) {
         String path = OhneeMC.instance.getDataFolder() + "/userdata/" + player.getUniqueId() + ".yml";
         userFile = new File(path);
@@ -461,6 +529,12 @@ public class UserData {
         return null;
     }
 
+    /**
+     * <p>savePlayerFile.</p>
+     *
+     * @param player a {@link org.bukkit.entity.Player} object.
+     * @return a boolean.
+     */
     public static boolean savePlayerFile(Player player) {
         String path = OhneeMC.instance.getDataFolder() + "/userdata/" + player.getUniqueId() + ".yml";
         userFile = new File(path);

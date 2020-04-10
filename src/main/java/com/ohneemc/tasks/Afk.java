@@ -10,6 +10,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 
+/**
+ * <p>Afk class.</p>
+ *
+ * @author stian
+ * @version $Id: $Id
+ */
 public class Afk implements Listener {
 
     private static boolean chatCancel = Config.getBoolean("afk.chat");

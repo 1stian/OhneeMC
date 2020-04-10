@@ -10,12 +10,21 @@ import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
+/**
+ * <p>Checker class.</p>
+ *
+ * @author stian
+ * @version $Id: $Id
+ */
 public class Checker {
 
     private static int tpRequestTimeout = Config.getInteger("teleport.timeout") * 1000;
     private static int afkTime = Config.getInteger("afk.time") * 60 * 1000;
 
     //Check for invalid tpa requests.
+    /**
+     * <p>tpRequest.</p>
+     */
     public static void tpRequest() {
         Bukkit.getScheduler().scheduleSyncRepeatingTask(OhneeMC.instance, () -> {
             for (UUID id : Maps.getTpRequestTarget().keySet()) {
@@ -43,6 +52,9 @@ public class Checker {
     }
 
     //Afk timer.
+    /**
+     * <p>checkAfk.</p>
+     */
     public static void checkAfk(){
         Bukkit.getScheduler().scheduleSyncRepeatingTask(OhneeMC.instance, () -> {
             for (Player player : Bukkit.getOnlinePlayers()){

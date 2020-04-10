@@ -9,17 +9,34 @@ import org.bukkit.ChatColor;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
+/**
+ * <p>Admin class.</p>
+ *
+ * @author stian
+ * @version $Id: $Id
+ */
 public class Admin {
 
+    /**
+     * <p>reloadConfig.</p>
+     *
+     * @return a boolean.
+     */
     public static boolean reloadConfig(){
         return Config.reloadConfig();
     }
 
+    /**
+     * <p>getVersion.</p>
+     *
+     * @return a {@link java.lang.String} object.
+     */
     public static String getVersion(){
         return OhneeMC.instance.getDescription().getVersion();
     }
 
     /**
+     * <p>setWeather.</p>
      *
      * @param player Player to grab the current world.
      * @param args What weather to select. clear | storm | thunder
@@ -57,6 +74,7 @@ public class Admin {
     }
 
     /**
+     * <p>setTime.</p>
      *
      * @param player Player to grab the current world.
      * @param args What time to select. morning | day | night | midnight
@@ -92,6 +110,7 @@ public class Admin {
     }
 
     /**
+     * <p>getPlayerHomes.</p>
      *
      * @param player Player to list homes to.
      * @param args  Target player to grab homes from.
