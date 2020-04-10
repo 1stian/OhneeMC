@@ -98,6 +98,8 @@ public class Config {
             OhneeMC.instance.reloadConfig();
             Maps.loadGroups();
             return true;
-        }catch (Exception e) {error(e); return false;}
+        }catch (Exception e) {
+            return false;
+        }
     }
 }
