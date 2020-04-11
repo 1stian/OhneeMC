@@ -82,7 +82,7 @@ public class JoinQuit implements Listener {
         users.set("imported", false);
         users.set("flyspeed", 0.1);
         users.set("name", player.getName());
-        users.set("gamemode", GameMode.SURVIVAL.toString());
+        users.set("gamemode", Config.getString("general.gamemode").toUpperCase());
         users.set("Timestamps.firstJoined", System.currentTimeMillis());
         users.set("Timestamps.lastSeasonStarted", System.currentTimeMillis());
 
