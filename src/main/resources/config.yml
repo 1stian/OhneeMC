@@ -16,6 +16,8 @@ general:
   join: "&a[+]&7 {player}"
   # Quit message
   quit: "&c[-]&7 {player}"
+  # Default gamemode : survival | creative
+  gamemode: "survival"
 
 afk:
   # How long it takes to be afk in minutes.
