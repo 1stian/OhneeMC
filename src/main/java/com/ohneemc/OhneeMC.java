@@ -72,13 +72,13 @@ public class OhneeMC extends JavaPlugin {
         startChecker();
         //Initiate vault
         if (!setupEconomy()) {
-            log.severe(String.format("[%s] - Disabled due to no Vault economy dependency found!", getDescription().getName()));
+            log.severe(String.format("[%s] - No Vault economy dependency found!", getDescription().getName()));
             //getServer().getPluginManager().disablePlugin(this);
             return;
         }
 
         if (!setupPermissions()) {
-            log.severe(String.format("[%s] - Disabled due to no Vault permission dependency found!", getDescription().getName()));
+            log.severe(String.format("[%s] - No Vault permission dependency found!", getDescription().getName()));
             //getServer().getPluginManager().disablePlugin(this);
             return;
         }
