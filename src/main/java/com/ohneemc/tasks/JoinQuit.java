@@ -134,7 +134,6 @@ public class JoinQuit implements Listener {
         GameMode gamemode = GameMode.valueOf(users.getString("gamemode"));
         if (gamemode == GameMode.CREATIVE){
             UserData.setFly(player, true);
-            player.setFlying(true);
         }
         player.setGameMode(gamemode);
 
