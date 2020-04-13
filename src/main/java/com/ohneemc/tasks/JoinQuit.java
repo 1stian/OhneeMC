@@ -44,7 +44,9 @@ public class JoinQuit implements Listener {
         //ChatColor.translateAlternateColorCodes('§', joinMsg);
         String joinMsg = ChatColor.translateAlternateColorCodes('&', Config.getString("general.join"));
         String msg = joinMsg.replaceAll("\\{player}", event.getPlayer().getName());
-        event.setJoinMessage(msg);
+        if (!joinMsg.equalsIgnoreCase("")){
+            event.setJoinMessage(msg);
+        }
 
         //Create UserData folder
         File udir = new File(OhneeMC.instance.getDataFolder().toString() + "/userdata/");
@@ -171,7 +173,9 @@ public class JoinQuit implements Listener {
         //ChatColor.translateAlternateColorCodes('§', quitMsg);
         String quitMsg = ChatColor.translateAlternateColorCodes('&', Config.getString("general.quit"));
         String msg = quitMsg.replaceAll("\\{player}", event.getPlayer().getName());
-        event.setQuitMessage(msg);
+        if (!quitMsg.equalsIgnoreCase("")){
+            event.setQuitMessage(msg);
+        }
 
         UserData.savePlayerFile(event.getPlayer());
     }
