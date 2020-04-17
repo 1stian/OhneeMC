@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+.gitignore
+.idea/
+OhneeMC.iml
+dependency-reduced-pom.xml
+src/main/java/com/ohneemc/ohneemc/
+src/test/
+target/
