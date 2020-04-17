@@ -19,6 +19,15 @@ general:
   # Default gamemode : survival | creative
   gamemode: "survival"
 
+# Save type, flatfile or mysql
+SaveType: "flatfile"
+
+MySql:
+  database: "minecraft"
+  username: "minecraft"
+  password: 123
+  prefix: "ohneemc_"
+
 afk:
   # How long it takes to be afk in minutes.
   time: 5
