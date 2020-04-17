@@ -23,6 +23,7 @@ general:
 SaveType: "flatfile"
 
 MySql:
+  host: "localhost"
   database: "minecraft"
   username: "minecraft"
   password: 123
