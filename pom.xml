@@ -53,7 +53,19 @@
             <version>1.7</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.41</version>
+        </dependency>
     </dependencies>
+
+    <properties>
+        <sonar.projectKey>1stian_OhneeMC</sonar.projectKey>
+        <sonar.organization>1stian</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.login>be87130e197aeaf59aa1c12d82ae07f5ac9d40e2</sonar.login>
+    </properties>
 
     <build>
         <resources>
