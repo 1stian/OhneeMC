@@ -12,6 +12,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.logging.Logger;
 
 /**
@@ -22,6 +25,7 @@ import java.util.logging.Logger;
  */
 public class OhneeMC extends JavaPlugin {
     private static final Logger log = Logger.getLogger("Minecraft");
+    private boolean USE_MYSQL;
 
     /** Constant <code>instance</code> */
     public static OhneeMC instance;
@@ -37,11 +41,21 @@ public class OhneeMC extends JavaPlugin {
     /** Constant <code>chat</code> */
     public static Chat chat = null;
 
+    //DataBase vars.
+    String username = null; //Enter in your db username
+    String password=null; //Enter your password for the db
+    String prefix=null;
+    String url = null; //Enter URL w/db name
+
+    //Connection vars
+    static Connection connection; //This is the variable we will use to connect to database
+
     /**
      * <p>onDisable.</p>
      */
     public void onDisable(){
-
+        if (USE_MYSQL)
+            disableMysql();
     }
 
     /**
@@ -49,6 +63,17 @@ public class OhneeMC extends JavaPlugin {
      */
     public void onEnable(){
         instance = this;
+        USE_MYSQL = Config.getBoolean("");
+
+        if (USE_MYSQL){
+            username=Config.getString("MySql.username");
+            password=Config.getString("MySql.password");
+            prefix=Config.getString("MySql.prefix");
+            url = "jdbc:mysql://"+Config.getString("MySql.host"+"/"+Config.getString("MySql.database"));
+
+            setupMysqlCon();
+        }
+
 
         //Initiate PlaceholderAPI
         if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
@@ -84,6 +109,36 @@ public class OhneeMC extends JavaPlugin {
         }
         //Load groups
         Maps.loadGroups();
+    }
+
+    private void setupMysqlCon() {
+        try { //We use a try catch to avoid errors, hopefully we don't get any.
+            Class.forName("com.mysql.jdbc.Driver"); //this accesses Driver in jdbc.
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            System.err.println("jdbc driver unavailable!");
+            return;
+        }
+        try { //Another try catch to get any SQL errors (for example connections errors)
+            connection = DriverManager.getConnection(url,username,password);
+            //with the method getConnection() from DriverManager, we're trying to set
+            //the connection's url, username, password to the variables we made earlier and
+            //trying to get a connection at the same time. JDBC allows us to do this.
+        } catch (SQLException e) { //catching errors)
+            e.printStackTrace(); //prints out SQLException errors to the console (if any)
+        }
+    }
+
+    private void disableMysql(){
+        // invoke on disable.
+        try { //using a try catch to catch connection errors (like wrong sql password...)
+            if (connection!=null && !connection.isClosed()){ //checking if connection isn't null to
+                //avoid receiving a nullpointer
+                connection.close(); //closing the connection field variable.
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private boolean setupEconomy() {
@@ -134,6 +189,7 @@ public class OhneeMC extends JavaPlugin {
         getCommand("fly").setExecutor(new Commands());
         getCommand("flyspeed").setExecutor(new Commands());
         getCommand("vanish").setExecutor(new Commands());
+        getCommand("spectate").setExecutor(new Commands());
         getCommand("back").setExecutor(new Commands());
         getCommand("invsee").setExecutor(new Commands());
         getCommand("afk").setExecutor(new Commands());
