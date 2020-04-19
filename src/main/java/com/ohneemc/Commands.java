@@ -134,6 +134,24 @@ public class Commands implements CommandExecutor {
                 }
             }
 
+            if (command.getName().equalsIgnoreCase("spectate") && sender instanceof Player){
+                if (args.length < 1){
+                    sender.sendMessage(ChatColor.GREEN + "You need to specify target: " + ChatColor.GOLD + "/spectate <player>");
+                    return true;
+                }
+                if (player.getGameMode() == GameMode.SPECTATOR){
+                    String exit = args[0];
+                    if (exit.equalsIgnoreCase("exit")){
+                        UserData.setSpectate(player, "", false);
+                        return true;
+                    }
+                }
+                if (!UserData.setSpectate(player, args[0], true)){
+                    sender.sendMessage(ChatColor.RED + "Something wrong happened while executing /spectate");
+                    return true;
+                }
+            }
+
             if (command.getName().equalsIgnoreCase("invsee") && sender instanceof Player) {
                 if (args.length == 1){
                     Player target = Bukkit.getPlayer(args[0]);
