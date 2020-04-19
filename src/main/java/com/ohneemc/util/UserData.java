@@ -419,6 +419,7 @@ public class UserData {
         if (enb){
             users.set("lastLocBeforeSpectate", getPlayerLocation(player));
             users.set("lastGamemodeBeforeSpectate", getGamemode(player));
+            users.set("gamemode", player.getGameMode().toString());
             Player targ = Bukkit.getPlayer(target);
             if (targ == null){
                 return false;
