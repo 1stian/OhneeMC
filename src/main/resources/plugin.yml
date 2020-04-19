@@ -118,6 +118,11 @@ commands:
     usage: /vanish
     permission: ohnee.vanish
     permission-message: You do not have access to this command /vanish.
+  spectate:
+    description: Allows you to spectate a player.
+    usage: /spectate <name>
+    permission: ohnee.spectate
+    permission-message: You do  not have access to this command /spectate.
   back:
     description: Teleports you to your last location before a teleport.
     usage: /back
@@ -172,6 +177,7 @@ permissions:
       ohnee.fly: true
       ohnee.glow: true
       ohnee.listhome: true
+      ohnee.spectate: true
   ohnee.admin:
     default: false
     description: Acces to all commands, but can't reload the plugin.
@@ -189,6 +195,7 @@ permissions:
       ohnee.gamemode: true
       ohnee.glow: true
       ohnee.listhome: true
+      ohnee.spectate: true
   ohnee.tpa:
     default: false
     description: Acces to basic usage of the plugin.
