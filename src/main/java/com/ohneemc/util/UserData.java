@@ -411,6 +411,33 @@ public class UserData {
         return false;
     }
 
+    public static boolean setSpectate(Player player, Player target, boolean enb){
+        if (player == null){
+            return false;
+        }
+        UserData.loadPlayerFile(player);
+        if (enb){
+            users.set("lastLocBeforeSpectate", getPlayerLocation(player));
+            users.set("lastGamemodeBeforeSpectate", getGamemode(player));
+            player.setGameMode(GameMode.SPECTATOR);
+            player.teleport(target.getLocation());
+            player.sendMessage("You entered spectator and been TPed to: " + target.getName());
+            savePlayerFile(player);
+            return true;
+        }else{
+            Location loc = users.getLocation("lastLocBeforeSpectate");
+            GameMode gm = GameMode.valueOf(users.getString("lastGamemodeBeforeSpectate"));
+            player.teleport(loc);
+            player.setGameMode(gm);
+            player.sendMessage("Gamemode and location restored.");
+
+            users.set("lastLocBeforeSpectate", "");
+            users.set("lastGamemodeBeforeSpectate", "");
+            savePlayerFile(player);
+            return true;
+        }
+    }
+
     /**
      * <p>isVanished.</p>
      *
