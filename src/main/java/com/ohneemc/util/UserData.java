@@ -421,7 +421,8 @@ public class UserData {
             users.set("lastGamemodeBeforeSpectate", getGamemode(player));
             player.setGameMode(GameMode.SPECTATOR);
             player.teleport(target.getLocation());
-            player.sendMessage("You entered spectator and been TPed to: " + target.getName());
+            player.sendMessage(ChatColor.GREEN + "You entered spectator and been TPed to: " + ChatColor.GOLD + target.getName());
+            player.sendMessage(ChatColor.GREEN + "To exit, " + ChatColor.GOLD + "/spectate exit");
             savePlayerFile(player);
             return true;
         }else{
@@ -429,7 +430,7 @@ public class UserData {
             GameMode gm = GameMode.valueOf(users.getString("lastGamemodeBeforeSpectate"));
             player.teleport(loc);
             player.setGameMode(gm);
-            player.sendMessage("Gamemode and location restored.");
+            player.sendMessage(ChatColor.GREEN + "Gamemode and location restored.");
 
             users.set("lastLocBeforeSpectate", "");
             users.set("lastGamemodeBeforeSpectate", "");
