@@ -411,7 +411,7 @@ public class UserData {
         return false;
     }
 
-    public static boolean setSpectate(Player player, Player target, boolean enb){
+    public static boolean setSpectate(Player player, String target, boolean enb){
         if (player == null){
             return false;
         }
@@ -419,9 +419,13 @@ public class UserData {
         if (enb){
             users.set("lastLocBeforeSpectate", getPlayerLocation(player));
             users.set("lastGamemodeBeforeSpectate", getGamemode(player));
+            Player targ = Bukkit.getPlayer(target);
+            if (targ == null){
+                return false;
+            }
             player.setGameMode(GameMode.SPECTATOR);
-            player.teleport(target.getLocation());
-            player.sendMessage(ChatColor.GREEN + "You entered spectator and been TPed to: " + ChatColor.GOLD + target.getName());
+            player.teleport(targ.getLocation());
+            player.sendMessage(ChatColor.GREEN + "You entered spectator and been TPed to: " + ChatColor.GOLD + targ.getName());
             player.sendMessage(ChatColor.GREEN + "To exit, " + ChatColor.GOLD + "/spectate exit");
             savePlayerFile(player);
             return true;
