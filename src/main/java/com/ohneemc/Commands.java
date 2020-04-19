@@ -149,6 +149,8 @@ public class Commands implements CommandExecutor {
                 if (!UserData.setSpectate(player, args[0], true)){
                     sender.sendMessage(ChatColor.RED + "Something wrong happened while executing /spectate");
                     return true;
+                }else{
+                    return true;
                 }
             }
 
