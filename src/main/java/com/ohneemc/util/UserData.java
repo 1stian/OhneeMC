@@ -415,10 +415,14 @@ public class UserData {
         if (player == null){
             return false;
         }
-        UserData.loadPlayerFile(player);
+        users = UserData.loadPlayerFile(player);
         if (enb){
-            users.set("lastLocBeforeSpectate", getPlayerLocation(player));
-            users.set("lastGamemodeBeforeSpectate", getGamemode(player));
+            if (player.getGameMode() != GameMode.SPECTATOR){
+                users.set("lastLocBeforeSpectate", getPlayerLocation(player));
+                users.set("lastGamemodeBeforeSpectate", getGamemode(player));
+                savePlayerFile(player);
+            }
+
             Player targ = Bukkit.getPlayer(target);
             if (targ == null){
                 return false;
@@ -427,7 +431,7 @@ public class UserData {
             player.teleport(targ.getLocation());
             player.sendMessage(ChatColor.GREEN + "You entered spectator and been TPed to: " + ChatColor.GOLD + targ.getName());
             player.sendMessage(ChatColor.GREEN + "To exit, " + ChatColor.GOLD + "/spectate exit");
-            savePlayerFile(player);
+
             return true;
         }else{
             Location loc = users.getLocation("lastLocBeforeSpectate");
